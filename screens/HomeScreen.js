@@ -13,6 +13,7 @@ export default HomeScreen = () => {
                     style={styles.nodata}
                     source={require('../assets/nodata.jpg')}
                 />
+                <Text style={{fontSize:25, fontWeight:'bold',marginTop:-60}}>No Data</Text>
             </View>
         </View>
     )

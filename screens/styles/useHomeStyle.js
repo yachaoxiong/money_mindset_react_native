@@ -10,11 +10,9 @@ export default styles = StyleSheet.create({
     noDataContainer: {
         flex: 1,
         alignItems: "center",
-
     },
     nodata: {
-        aspectRatio: 0.7,
+        aspectRatio: 0.5,
         resizeMode: 'contain',
-        marginTop:30
     },
 })
