@@ -20,7 +20,8 @@ export default styles = StyleSheet.create({
         display: 'flex',
         flexDirection:'row',
         zIndex:1,
-        top:-7
+        top:-7,
+        height:70
     },
     leftContainer: {
         display: 'flex',
@@ -28,7 +29,6 @@ export default styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         width:'25%',
-        height:70
     },
     // Dropdpwn list component style
     // Begins
