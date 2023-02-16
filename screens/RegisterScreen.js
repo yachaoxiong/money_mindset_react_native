@@ -37,8 +37,8 @@ export default RegisterScreen = (props) => {
           })
       }
 
-    const loginLink_Pressed = () => {
-        navigation.navigate('LoginScreen', {})
+    const loginLinkPressed = () => {
+        navigation.navigate('Login')
     }
 
     return (
@@ -77,7 +77,7 @@ export default RegisterScreen = (props) => {
             />
             <View style={styles.textRow}>
                 <Text style={styles.text}>Already have an account?</Text>
-                <TouchableOpacity onPress={loginLink_Pressed}>
+                <TouchableOpacity onPress={loginLinkPressed}>
                     <Text style={styles.link}> Login</Text>
                 </TouchableOpacity>
             </View>
