@@ -25,7 +25,7 @@ export default function LoginScreen(props) {
               console.log("res",res)
               if (res.user) {
                 updateUser(res.user);
-                props.navigation.navigate('Home');
+                props.navigation.navigate('BottomNavigationTabs', { screen: 'Home' });
               } else {
                 setMessage(res.message);
               }
