@@ -10,6 +10,8 @@ import { faBalanceScale } from '@fortawesome/free-solid-svg-icons'
 import { faImage } from '@fortawesome/free-solid-svg-icons'
 import { faMessage } from '@fortawesome/free-solid-svg-icons'
 import styles from './styles/appHeaderStyle';
+import TabsBarMenu from '../home/TabsBarMenu';
+import { homeTabs } from '../../data/home';
 
 export default AppHeader = () => {
     const [selected, setSelected] = React.useState("");
@@ -45,22 +47,17 @@ export default AppHeader = () => {
                 {/* right part */}
                 <View style={styles.rightContainer}>
                     <View style={styles.incomeContainer}>
-                        <Text style={styles.text}>Income</Text>
+                        <Text style={styles.label}>Income</Text>
                         <Text style={styles.text}>0.00</Text>
                     </View>
                     <View style={styles.expenseContainer}>
-                        <Text style={styles.text}>Expense</Text>
+                        <Text style={styles.label}>Expense</Text>
                         <Text style={styles.text}>0.00</Text>
                     </View>
                 </View>
             </View>
             {/* Menu */}
-            <View style={styles.menuItemContainer}>
-                 <AppTabItem icon={faMoneyBill} size={25} color="red" text="Bill"/>
-                 <AppTabItem icon={faBalanceScale} size={25} color="red" text="Budget"/>
-                 <AppTabItem icon={faImage} size={25} color="red" text="Assets"/>
-                 <AppTabItem icon={faMessage} size={25} color="red" text="More"/>
-            </View>
+            <TabsBarMenu menuItems={homeTabs} />
         </View>
     )
 }

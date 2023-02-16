@@ -3,13 +3,14 @@ import { StyleSheet } from 'react-native';
 
 export default styles = StyleSheet.create({
     container: {
-        height: '25%',
+        height: '30%',
         width: '100%',
         backgroundColor: '#DA0452'
     },
     logoContainer: {
         flex: 1,
         alignItems: "center",
+        paddingTop: 5
     },
     logo: {
         aspectRatio: 1.3,
@@ -18,17 +19,20 @@ export default styles = StyleSheet.create({
     },
     infoContainer: {
         display: 'flex',
-        flexDirection:'row',
+        flexDirection: 'row',
+        alignContent: 'center',
         zIndex:1,
         top:-7,
         height:70
     },
     leftContainer: {
         display: 'flex',
-        flexDirection:'column',
-        justifyContent:'center',
-        alignItems:'center',
-        width:'25%',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '25%',
+        paddingBottom: 18,
+        zIndex:99,
     },
     // Dropdpwn list component style
     // Begins
@@ -55,15 +59,20 @@ export default styles = StyleSheet.create({
     },
     // Dropdpwn list component style
     // Ends
+    label: {
+        color: '#FFF',
+        fontSize: 12,
+        fontWeight: 'bold'
+    },
     text: {
         color:'#FFF',
         fontWeight:'bold',
         marginTop:10
     },
-    dividingLine:{
-        height:60,
-        width:2,
-        borderWidth:2,
+    dividingLine: {
+        marginTop: 10,
+        marginBottom: 10,
+        borderWidth:1,
         borderColor:'#FFF',
         backgroundColor:'white',
     },
