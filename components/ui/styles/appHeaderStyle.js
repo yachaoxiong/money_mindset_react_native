@@ -10,7 +10,6 @@ export default styles = StyleSheet.create({
     logoContainer: {
         flex: 1,
         alignItems: "center",
-
     },
     logo: {
         aspectRatio: 1.3,
@@ -18,16 +17,18 @@ export default styles = StyleSheet.create({
         marginTop:30
     },
     infoContainer: {
-        top:0,
         display: 'flex',
         flexDirection:'row',
+        zIndex:1,
+        top:-7
     },
     leftContainer: {
         display: 'flex',
         flexDirection:'column',
         justifyContent:'center',
         alignItems:'center',
-        width:'30%'
+        width:'25%',
+        height:70
     },
     // Dropdpwn list component style
     // Begins
@@ -59,13 +60,6 @@ export default styles = StyleSheet.create({
         fontWeight:'bold',
         marginTop:10
     },
-    incomeAndExpenseContainer: {
-        display: 'flex',
-        flexDirection:'row',
-        justifyContent:'space-between',
-        width:'70%',
-        paddingRight:30,
-    },
     dividingLine:{
         height:60,
         width:2,
@@ -89,8 +83,7 @@ export default styles = StyleSheet.create({
         backgroundColor:'#FFF',
         width:'70%',
         height:60,
-        zIndex:99,
-        marginBottom:-20,
+        marginBottom:-40,
         marginLeft:'15%',
         paddingRight:20,
         paddingLeft:20,
