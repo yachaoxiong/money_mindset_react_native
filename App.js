@@ -1,35 +1,64 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import getAppStyle from './common/styles';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import BottomNavigationTabs from './navigation/BottomNavigationTabs'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import StoreContextProvider from './store/store';
+import { StoreContext } from './store/store';
 
 const Stack = createNativeStackNavigator();
+const AuthStack = createStackNavigator();
+
+const AuthStackScreen = () => (
+  <AuthStack.Navigator>
+    <AuthStack.Screen name="Login" component={LoginScreen}
+      options={{
+        title: '  ',
+        headerShadowVisible: false,
+      }}
+    />
+    <AuthStack.Screen name="Register" component={RegisterScreen}
+      options={{
+        headerBackImage: () => (
+          <View style={{ marginLeft: 10 }}>
+            <FontAwesome
+               name="chevron-left"
+               size={20}
+              color={getAppStyle().colors.text}
+            />
+          </View>
+        ),
+      title: '  ',
+      headerShadowVisible: false,
+    }}
+    />
+  </AuthStack.Navigator>
+);
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-          <Stack.Screen
-            name="LoginScreen"
-            component={LoginScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="RegisterScreen"
-            component={RegisterScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="BottomNavigationTabs"
-            component={BottomNavigationTabs}
-            options={{ headerShown: false }}
-          />
-
-      </Stack.Navigator>
-    </NavigationContainer>
-
+    <StoreContextProvider>
+      <StoreContext.Consumer>
+      {({ myUser }) => (
+          <NavigationContainer>
+            <Stack.Navigator>
+              {!myUser ? 
+              <Stack.Screen name="Auth" component={AuthStackScreen} options={{ headerShown: false }} />: (
+              <Stack.Screen
+                name="BottomNavigationTabs"
+                component={BottomNavigationTabs}
+                options={{ headerShown: false }}
+                />)
+           }
+          </Stack.Navigator>
+          </NavigationContainer>
+      )}
+     </StoreContext.Consumer>
+    </StoreContextProvider>
   );
 }
 
