@@ -70,9 +70,9 @@ export default styles = StyleSheet.create({
         marginTop:10
     },
     dividingLine: {
-        marginTop: 10,
-        marginBottom: 10,
-        borderWidth:1,
+        marginTop: 5,
+        marginBottom: 20,
+        borderWidth:.8,
         borderColor:'#FFF',
         backgroundColor:'white',
     },
