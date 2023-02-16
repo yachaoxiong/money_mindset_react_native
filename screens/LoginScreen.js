@@ -12,7 +12,9 @@ export default function LoginScreen() {
     const navigation = useNavigation();
     
     const handleLogin = () => {
-
+        navigation.navigate('BottomNavigationTabs', {
+            screen: 'HomeScreen',
+        });
     }
 
     const registerLink_Pressed = () => {

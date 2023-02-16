@@ -1,11 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
-
+import BottomNavigationTabs from './navigation/BottomNavigationTabs'
 
 const Stack = createNativeStackNavigator();
 
@@ -18,11 +16,17 @@ export default function App() {
             component={LoginScreen}
             options={{ headerShown: false }}
           />
-           <Stack.Screen
+          <Stack.Screen
             name="RegisterScreen"
             component={RegisterScreen}
             options={{ headerShown: false }}
           />
+          <Stack.Screen
+            name="BottomNavigationTabs"
+            component={BottomNavigationTabs}
+            options={{ headerShown: false }}
+          />
+
       </Stack.Navigator>
     </NavigationContainer>
 
