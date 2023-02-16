@@ -6,7 +6,6 @@ export default styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         backgroundColor: getAppStyle().colors.background,
-        paddingTop:140,
         paddingHorizontal: 30,
     },
     title: {
@@ -18,6 +17,7 @@ export default styles = StyleSheet.create({
         width: 160,
         height: 160,
         resizeMode: 'contain',
+        paddingTop: 50,
     },
     text: {
         color: getAppStyle().colors.text,

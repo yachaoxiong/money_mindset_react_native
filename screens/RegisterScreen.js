@@ -4,17 +4,38 @@ import AppInput from '../components/ui/AppInput'
 import AppButton from '../components/ui/AppButton'
 import { useNavigation } from '@react-navigation/native';
 import styles from './styles/useLoginStyle';
+import { register } from '../auth/auth';
 
-export default RegisterScreen = () => {
-    const [userName, setUserName] = React.useState("");
+export default RegisterScreen = (props) => {
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState('');
     const [confirmedPassword, setConfirmedPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
     const navigation = useNavigation();
 
-    const handleSubmit = () => {
-
-    }
+    const handleRegister = () => {
+        console.log("submit")
+        if (username === '' || password === ''|| email === ''|| confirmedPassword === '') {
+          setMessage('Please fill in all fields');
+          return
+        }
+        if (password !== confirmedPassword) {
+          setMessage('Passwords do not match');
+          return
+        }
+        register(username, password, email)
+            .then(res => {
+                console.log("res", res)
+                console.log("success")
+            if (res === 'success') {
+              props.navigation.navigate('Login');
+            } 
+          }
+          ).catch(err => {
+            setMessage(err.message);
+          })
+      }
 
     const loginLink_Pressed = () => {
         navigation.navigate('LoginScreen', {})
@@ -29,7 +50,7 @@ export default RegisterScreen = () => {
             />
             <AppInput
                 placeholder="username"
-                value={userName}
+                value={username}
                 onChangeText={text => setUsername(text)}
             />
             <AppInput
@@ -40,16 +61,19 @@ export default RegisterScreen = () => {
             <AppInput
                 placeholder="password"
                 value={password}
+                secureTextEntry={true}
                 onChangeText={text => setPassword(text)}
             />
             <AppInput
-                placeholder="confirmedPassword"
+                placeholder="confirmed Password"
+                secureTextEntry={true}
                 value={confirmedPassword}
                 onChangeText={text => setConfirmedPassword(text)}
             />
+            <Text style={styles.message}>{message}</Text>
             <AppButton
                 title="Submit"
-                onPress={handleSubmit}
+                onPress={handleRegister}
             />
             <View style={styles.textRow}>
                 <Text style={styles.text}>Already have an account?</Text>

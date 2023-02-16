@@ -1,24 +1,41 @@
-import React, { useContext, useState } from 'react';
+import React,{ useContext, useState } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AppInput from '../components/ui/AppInput'
+import { StoreContext } from '../store/store';
 import AppButton from '../components/ui/AppButton'
 import styles from './styles/useLoginStyle';
+import { login } from '../auth/auth';
 
-export default function LoginScreen() {
+export default function LoginScreen(props) {
+
+    const { updateUser } = useContext(StoreContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
     const navigation = useNavigation();
     
     const handleLogin = () => {
-        navigation.navigate('BottomNavigationTabs', {
-            screen: 'HomeScreen',
-        });
-    }
-
-    const registerLink_Pressed = () => {
-        navigation.navigate('RegisterScreen', {})
+        if (username === '' || password === '') {
+          setMessage('Please fill in all fields');
+        } else {
+          console.log("username", username)
+          login(username, password)
+            .then(res => {
+              console.log("res",res)
+              if (res.user) {
+                updateUser(res.user);
+                props.navigation.navigate('Home');
+              } else {
+                setMessage(res.message);
+              }
+            }).catch(err => {
+              setMessage(err.message);
+            })
+        }
+      }
+    const registerLinkPressed = () => {
+       props.navigation.navigate('Register')
     }
 
     return (
@@ -45,7 +62,7 @@ export default function LoginScreen() {
             />
             <View style={styles.textRow}>
                 <Text style={styles.text}>Don't have an account?</Text>
-                <TouchableOpacity onPress={registerLink_Pressed}>
+                <TouchableOpacity onPress={registerLinkPressed}>
                     <Text style={styles.link}> Register</Text>
                 </TouchableOpacity>
             </View>
