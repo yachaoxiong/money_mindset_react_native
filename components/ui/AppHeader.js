@@ -12,6 +12,7 @@ import { faMessage } from '@fortawesome/free-solid-svg-icons'
 import styles from './styles/appHeaderStyle';
 import TabsBarMenu from '../home/TabsBarMenu';
 import { homeTabs } from '../../data/home';
+import AppTextAmount from './AppTextAmount';
 
 export default AppHeader = () => {
     const [selected, setSelected] = React.useState("");
@@ -48,11 +49,11 @@ export default AppHeader = () => {
                 <View style={styles.rightContainer}>
                     <View style={styles.incomeContainer}>
                         <Text style={styles.label}>Income</Text>
-                        <Text style={styles.text}>0.00</Text>
+                        <AppTextAmount amount={12.00}  />
                     </View>
                     <View style={styles.expenseContainer}>
                         <Text style={styles.label}>Expense</Text>
-                        <Text style={styles.text}>0.00</Text>
+                        <AppTextAmount amount={122222.00} />
                     </View>
                 </View>
             </View>
