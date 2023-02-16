@@ -56,22 +56,10 @@ export default AppHeader = () => {
             </View>
             {/* Menu */}
             <View style={styles.menuItemContainer}>
-                <View style={styles.menuItem}>
-                    <AppTabItem icon={faMoneyBill} size={25} color="red"/>
-                    <Text style={styles.menuText}>Bill</Text>
-                </View>
-                <View style={styles.menuItem}>
-                    <AppTabItem icon={faBalanceScale} size={25} color="red"/>
-                    <Text style={styles.menuText}>Budget</Text>
-                </View>
-                <View style={styles.menuItem}>
-                    <AppTabItem icon={faImage} size={25} color="red"/>
-                    <Text style={styles.menuText}>Assets</Text>
-                </View>
-                <View style={styles.menuItem}>
-                    <AppTabItem icon={faMessage} size={25} color="red"/>
-                    <Text style={styles.menuText}>More</Text>
-                </View>
+                 <AppTabItem icon={faMoneyBill} size={25} color="red" text="Bill"/>
+                 <AppTabItem icon={faBalanceScale} size={25} color="red" text="Budget"/>
+                 <AppTabItem icon={faImage} size={25} color="red" text="Assets"/>
+                 <AppTabItem icon={faMessage} size={25} color="red" text="More"/>
             </View>
         </View>
     )
