@@ -4,21 +4,45 @@ import styles from './styles/appTransactionStyle'
 
 export default function AppTransaction(props) {
 
-    const { date, year, income, expense, transactions } = props.transaction;
+    const mockUpDate = [
+        {
+            date:"02-15",
+            year:"2023",
+            income: "150",
+            expense: "80",
+            transactions:[
+                {activity:"Phone",cost:"-150"},
+                {activity:"Part-time",cost:"200"},
+            ]
+        },
+        {
+            date:"02-16",
+            year:"2023",
+            income: "50",
+            expense: "100",
+            transactions:[
+                {activity:"Food",cost:"-150"},
+            ]
+        },
+    ]
 
     return (
         <View style={styles.container}>
-            <View style={styles.transactionHeaderContainer}>
-                <View style={styles.date}>
-                    <Text style={styles.dateText}>{date} {year}</Text>
+            {mockUpDate.map((item, key) => {
+                return <View key={key} style={styles.transactionContainer}>
+                    <View style={styles.transactionHeaderContainer}>
+                        <View style={styles.date}>
+                            <Text style={styles.dateText}>{item.date} {item.year}</Text>
+                        </View>
+                        <View style={styles.incomeAndExpense}>
+                            <Text style={styles.incomeText}>Income: {item.income}    Expense: {item.expense}</Text>
+                        </View>
+                    </View>
+                    <View style={styles.horizonalDividingLine}></View>
+                    {item.transactions.map((item,key) => {
+                        return <AppTransactionDetails item={item} key={key}/>
+                    })}
                 </View>
-                <View style={styles.incomeAndExpense}>
-                    <Text style={styles.incomeText}>Income: {income}    Expense: {expense}</Text>
-                </View>
-            </View>
-            <View style={styles.horizonalDividingLine}></View>
-            {transactions.map((item) => {
-                return <AppTransactionDetails item={item} />
             })}
         </View>
     )

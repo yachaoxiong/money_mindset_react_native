@@ -23,5 +23,8 @@ export default styles = StyleSheet.create({
         marginTop:10,
         borderWidth:.8,
         borderColor:'#CACFD2'
+    },
+    transactionContainer:{
+        marginTop:20
     }
 })

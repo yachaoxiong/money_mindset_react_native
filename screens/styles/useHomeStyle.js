@@ -16,5 +16,8 @@ export default styles = StyleSheet.create({
     },
     scrollView: {
         marginTop: 55
+    },
+    topMenuItemContainer:{
+        marginTop: 35
     }
 })
