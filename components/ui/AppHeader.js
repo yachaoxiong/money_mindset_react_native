@@ -2,13 +2,8 @@ import React, { useState } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { SelectList } from 'react-native-dropdown-select-list'
 import calandarMonths from '../../utils/static'
-import AppTabItem from '../../components/ui/AppTabItem'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
-import { faMoneyBill } from '@fortawesome/free-solid-svg-icons'
-import { faBalanceScale } from '@fortawesome/free-solid-svg-icons'
-import { faImage } from '@fortawesome/free-solid-svg-icons'
-import { faMessage } from '@fortawesome/free-solid-svg-icons'
 import styles from './styles/appHeaderStyle';
 import TabsBarMenu from '../home/TabsBarMenu';
 import { homeTabs } from '../../data/home';

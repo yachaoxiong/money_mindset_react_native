@@ -4,7 +4,6 @@ import getAppStyle from '../../common/styles';
 export default styles = StyleSheet.create({
     container: {
         flex:1,
-        alignItems: 'center',
         backgroundColor: 'white'
     },
     noDataContainer: {
@@ -15,4 +14,7 @@ export default styles = StyleSheet.create({
         aspectRatio: 0.5,
         resizeMode: 'contain',
     },
+    scrollView: {
+        marginTop: 55
+    }
 })
