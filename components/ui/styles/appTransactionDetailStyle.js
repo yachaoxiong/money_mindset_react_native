@@ -7,7 +7,10 @@ export default styles = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'space-between',
         alignItems:'center',
-        padding:20,
+        paddingLeft:20,
+        paddingRight:20,
+        paddingTop:15,
+        paddingBottom:15,
         backgroundColor:"#F0F3F4",
         marginTop:10,
         borderRadius:10,
@@ -25,7 +28,10 @@ export default styles = StyleSheet.create({
     activityName:{
         marginLeft:20
     },
-    cost:{
-
+    costAndEditButton:{
+        display: 'flex',
+        flexDirection:'row',
+        justifyContent:'center',
+        alignItems:'center'
     }
 })

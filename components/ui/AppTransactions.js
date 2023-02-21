@@ -1,5 +1,7 @@
 import { View, Text } from 'react-native'
 import AppTransactionDetails from './AppTransactionDetail'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import styles from './styles/appTransactionStyle'
 
 export default function AppTransactions(props) {
