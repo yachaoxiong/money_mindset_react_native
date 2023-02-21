@@ -10,7 +10,8 @@ import { homeTabs } from '../../data/home';
 import AppTextAmount from './AppTextAmount';
 
 export default AppHeader = () => {
-    const [selected, setSelected] = React.useState("");
+    const [selectedListItem, setSelectedListItem] = React.useState("");
+    const [selectedMenuItem, setSelectedMenuItem] = React.useState(0)
 
     return (
         <View style={styles.container}>
@@ -25,7 +26,7 @@ export default AppHeader = () => {
                 <View style={styles.leftContainer}>
                     <Text style={styles.text}>2023</Text>
                     <SelectList
-                        setSelected={(val) => setSelected(val)}
+                        setSelected={(val) => setSelectedListItem(val)}
                         data={calandarMonths}
                         search={false}
                         save="value"
@@ -53,7 +54,11 @@ export default AppHeader = () => {
                 </View>
             </View>
             {/* Menu */}
-            <TabsBarMenu menuItems={homeTabs} />
+            <TabsBarMenu 
+                    menuItems={homeTabs} 
+                    selectedMenuItem = {selectedMenuItem} 
+                    setSelectedMenuItem = {setSelectedMenuItem}
+            />
         </View>
     )
 }

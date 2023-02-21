@@ -3,11 +3,12 @@ import { StyleSheet } from 'react-native';
 export default styles = StyleSheet.create({
   tabBarContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent:'space-evenly' ,
     backgroundColor: '#FFF',
     height: 70, // fixed height
     marginBottom: -40,
     paddingHorizontal: 20,
+    paddingVertical:5,
     marginHorizontal: 28,
     borderRadius: 7,
     shadowOffset: { width: -2, height: 4 },
@@ -17,6 +18,13 @@ export default styles = StyleSheet.create({
   },
   itemContainer: {
     flex: 1,
+    width:67
+  },
+  selectedItemContainer:{
+    flex: 1,
+    width:67,
+    backgroundColor:'#E5E7E9',
+    borderRadius:5,
   },
   iconContainer: {
     alignItems: 'center',
@@ -32,5 +40,5 @@ export default styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: 'bold',
     textAlign: 'center',
-  },
+  }
 });
