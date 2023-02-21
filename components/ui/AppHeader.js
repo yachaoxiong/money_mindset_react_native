@@ -9,9 +9,9 @@ import TabsBarMenu from '../home/TabsBarMenu';
 import { homeTabs } from '../../data/home';
 import AppTextAmount from './AppTextAmount';
 
-export default AppHeader = () => {
+export default AppHeader = (props) => {
+
     const [selectedListItem, setSelectedListItem] = React.useState("");
-    const [selectedMenuItem, setSelectedMenuItem] = React.useState(0)
 
     return (
         <View style={styles.container}>
@@ -56,8 +56,6 @@ export default AppHeader = () => {
             {/* Menu */}
             <TabsBarMenu 
                     menuItems={homeTabs} 
-                    selectedMenuItem = {selectedMenuItem} 
-                    setSelectedMenuItem = {setSelectedMenuItem}
             />
         </View>
     )

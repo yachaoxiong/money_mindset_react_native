@@ -1,21 +1,21 @@
 export const homeTabs = [
   {
-    name: 'Transaction',
+    name: 'Bill',
     image: require('../assets/bill.png'),
     link: 'Bill',
   },
   {
-    name: 'Bill',
+    name: 'Budget',
     image: require('../assets/budget.png'),
     link: 'Budget',
   },
   {
-    name: 'Budget',
+    name: 'Assets',
     image: require('../assets/assets.png'),
     link: 'Assets',
   },
   {
-    name: 'Assets',
+    name: 'More',
     image: require('../assets/more.png'),
     link: 'More',
   },

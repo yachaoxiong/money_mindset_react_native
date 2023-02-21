@@ -3,15 +3,15 @@ import { View,TouchableOpacity, Text,Image } from 'react-native'
 import styles from './styles/useTabsBarMenuStyle'
 export default function TabsBarMenu(props) {
 
-  const { menuItems, selectedMenuItem,setSelectedMenuItem } = props;
+  const { menuItems} = props;
   const itemClick = (item,index) => {
-    setSelectedMenuItem(index)
   }
   const renderItems = menuItems.map((item, index) => {
     return (
         <TouchableOpacity
-          style={selectedMenuItem === index ? styles.selectedItemContainer : styles.itemContainer}
+          style={styles.itemContainer}
           onPress={() => itemClick(item,index)}
+          key={index}
         >
           <View style={styles.iconContainer}>
             <Image 
