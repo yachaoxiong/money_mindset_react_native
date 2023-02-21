@@ -1,8 +1,8 @@
 import { View, Text } from 'react-native'
-import AppTransactionDetails from '../ui/AppTransactionDetail'
+import AppTransactionDetails from './AppTransactionDetail'
 import styles from './styles/appTransactionStyle'
 
-export default function AppTransaction(props) {
+export default function AppTransactions(props) {
 
     const mockUpDate = [
         {
