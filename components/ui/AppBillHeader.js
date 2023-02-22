@@ -47,8 +47,19 @@ export default AppBillHeader = () => {
                 </TouchableOpacity>
             </View>
             <View style={styles.balanceContainer}>
-                <Text style={styles.balanceText}>Balance</Text>
+                <Text style={styles.textCommon}>Balance</Text>
                 <AppTextAmount amount={7070.37} amountSize={30}/>
+            </View>
+            <View style={styles.incomeAndExpenseContainer}>
+                <View style={styles.incomeAndExpense}>
+                    <Text style={styles.textCommon}>Income</Text>
+                    <AppTextAmount amount={8276.31} amountSize={20}/>
+                </View>
+                <View style={styles.dividingLine}></View>
+                <View style={styles.incomeAndExpense}>
+                    <Text style={styles.textCommon}>Expense</Text>
+                    <AppTextAmount amount={2039.19} amountSize={20}/>
+                </View>
             </View>
         </View>
     )

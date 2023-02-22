@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 export default styles = StyleSheet.create({
     container: {
-        height: '30%',
+        height: '27%',
         width: '100%',
         backgroundColor: '#DA0452'
     },
@@ -59,13 +59,35 @@ export default styles = StyleSheet.create({
     balanceContainer:{
         display:'flex',
         alignItems:'center',
-        marginTop:10,
+        marginTop:6,
         marginLeft:10
     },
-    balanceText:{
+    textCommon:{
         fontSize:12,
         color:"#FFF",
         fontWeight:'bold',
-        marginBottom:-10
-    }
+        marginBottom:-10,
+        marginRight:5,
+        marginTop:5
+    },
+    incomeAndExpenseContainer:{
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:'space-between',
+        paddingLeft:30,
+        paddingRight:30,
+        marginTop:15
+    },
+    incomeAndExpense:{
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    dividingLine: {
+        width:.8,
+        height:35,
+        borderWidth:.8,
+        borderColor:'#FFF',
+        backgroundColor:'white',
+    },
 })
