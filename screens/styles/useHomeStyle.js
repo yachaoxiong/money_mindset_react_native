@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import getAppStyle from '../../common/styles';
+import {AppStyles} from '../../common/styles'
 
 export default styles = StyleSheet.create({
     container: {
@@ -51,10 +51,8 @@ export default styles = StyleSheet.create({
         color:"#939393",
         fontSize:12
     },
-    horizonalDividingLine:{
-        marginTop:10,
-        borderWidth:.8,
-        borderColor:'#CACFD2'
+    horizonalLine:{
+        ...AppStyles.horizontalLine
     },
     transactionContainer:{
         marginTop:20,

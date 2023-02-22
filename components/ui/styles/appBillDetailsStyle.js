@@ -1,24 +1,21 @@
+import getAppStyle from '../../../common/styles';
+import { AppStyles } from '../../../common/styles'
 import { StyleSheet } from 'react-native';
-import {AppStyles} from '../../common/styles'
 
 export default styles = StyleSheet.create({
-    container: {
-        flex:1,
-        backgroundColor: 'white'
+    container:{
     },
-    billDetailTableHeader:{
+    billDetailContainer:{
         display: 'flex',
         flexDirection:'row',
-        justifyContent:"space-between",
+        justifyContent:'space-between',
+        alignItems:'center',
         paddingLeft: 20,
-        paddingRight: 20,
+        paddingRight: 10,
         paddingTop:20,
         paddingBottom:10
     },
-    tableHeaderText:{
-        color:'#797D7F'
-    },
     horizontalLine:{
         ...AppStyles.horizontalLine
-    }
+    },
 })

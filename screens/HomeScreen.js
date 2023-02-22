@@ -42,7 +42,7 @@ export default HomeScreen = () => {
                                 <Text style={styles.incomeText}>Income: {item.income}    Expense: {item.expense}</Text>
                             </View>
                         </View>
-                        <View style={styles.horizonalDividingLine}></View>
+                        <View style={styles.horizonalLine}></View>
                         <View style={styles.transactionDetails}>
                             {item.transactions.map((item, key) => {
                                 return <AppTransactionDetails item={item} key={key} />

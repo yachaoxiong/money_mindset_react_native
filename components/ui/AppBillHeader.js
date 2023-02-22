@@ -3,9 +3,9 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { SelectList } from 'react-native-dropdown-select-list';
 import { calendarYear } from '../../utils/static';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
-import { faCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { faCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import AppTextAmount from './AppTextAmount';
 import styles from './styles/appBillHeaderStyle';
 
