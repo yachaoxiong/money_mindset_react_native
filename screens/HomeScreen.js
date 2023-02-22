@@ -1,18 +1,55 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Text } from 'react-native';
 import AppHeader from '../components/ui/AppHeader'
-import AppTransactions from '../components/ui/AppTransactions'
+import AppTransactionDetails from '../components/ui/AppTransactionDetail'
 import styles from './styles/useHomeStyle'
-import AppBills from '../components/ui/AppBills'
 
 export default HomeScreen = () => {
 
-    const [selectedMenuItem, setSelectedMenuItem] = React.useState(0)
+    const mockUpDate = [
+        {
+            date: "02-15",
+            year: "2023",
+            income: "150",
+            expense: "80",
+            transactions: [
+                { activity: "Phone", cost: "-150" },
+                { activity: "Part-time", cost: "200" },
+            ]
+        },
+        {
+            date: "02-16",
+            year: "2023",
+            income: "50",
+            expense: "100",
+            transactions: [
+                { activity: "Food", cost: "-150" },
+            ]
+        },
+    ]
+    
     return (
         <View style={styles.container}>
-            <AppHeader/>
+            <AppHeader />
             <ScrollView style={styles.topMenuItemContainer}>
-                {selectedMenuItem === 0 ? <AppTransactions/> : <AppBills/>}
+                {mockUpDate.map((item, key) => {
+                    return <View key={key} style={styles.transactionContainer}>
+                        <View style={styles.transactionHeaderContainer}>
+                            <View style={styles.date}>
+                                <Text style={styles.dateText}>{item.date} {item.year}</Text>
+                            </View>
+                            <View style={styles.incomeAndExpense}>
+                                <Text style={styles.incomeText}>Income: {item.income}    Expense: {item.expense}</Text>
+                            </View>
+                        </View>
+                        <View style={styles.horizonalDividingLine}></View>
+                        <View style={styles.transactionDetails}>
+                            {item.transactions.map((item, key) => {
+                                return <AppTransactionDetails item={item} key={key} />
+                            })}
+                        </View>
+                    </View>
+                })}
             </ScrollView>
         </View>
     )
