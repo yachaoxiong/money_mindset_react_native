@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import getAppStyle from './common/styles';
 import LoginScreen from './screens/LoginScreen';
+import BillScreen from './screens/BillScreens';
 import RegisterScreen from './screens/RegisterScreen';
 import BottomNavigationTabs from './navigation/BottomNavigationTabs'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -26,15 +27,15 @@ const AuthStackScreen = () => (
         headerBackImage: () => (
           <View style={{ marginLeft: 10 }}>
             <FontAwesome
-               name="chevron-left"
-               size={20}
+              name="chevron-left"
+              size={20}
               color={getAppStyle().colors.text}
             />
           </View>
         ),
-      title: '  ',
-      headerShadowVisible: false,
-    }}
+        title: '  ',
+        headerShadowVisible: false,
+      }}
     />
   </AuthStack.Navigator>
 );
@@ -43,21 +44,25 @@ export default function App() {
   return (
     <StoreContextProvider>
       <StoreContext.Consumer>
-      {({ myUser }) => (
+        {({ myUser }) => (
           <NavigationContainer>
             <Stack.Navigator>
-              {!myUser ? 
-              <Stack.Screen name="Auth" component={AuthStackScreen} options={{ headerShown: false }} />: (
+              {!myUser ?
+                <Stack.Screen name="Auth" component={AuthStackScreen} options={{ headerShown: false }} /> : (
+                  <Stack.Screen
+                    name="BottomNavigationTabs"
+                    component={BottomNavigationTabs}
+                    options={{ headerShown: false }}
+                  />)
+              }
               <Stack.Screen
-                name="BottomNavigationTabs"
-                component={BottomNavigationTabs}
-                options={{ headerShown: false }}
-                />)
-           }
-          </Stack.Navigator>
+                name="BillScreen"
+                component={BillScreen} 
+                options={{ headerShown: false }}/>
+            </Stack.Navigator>
           </NavigationContainer>
-      )}
-     </StoreContext.Consumer>
+        )}
+      </StoreContext.Consumer>
     </StoreContextProvider>
   );
 }

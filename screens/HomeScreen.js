@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ScrollView, Text } from 'react-native';
-import AppHeader from '../components/ui/AppHeader'
+import AppHomeHeader from '../components/ui/AppHomeHeader'
 import AppTransactionDetails from '../components/ui/AppTransactionDetail'
 import styles from './styles/useHomeStyle'
 
@@ -30,7 +30,7 @@ export default HomeScreen = () => {
     
     return (
         <View style={styles.container}>
-            <AppHeader />
+            <AppHomeHeader />
             <ScrollView style={styles.topMenuItemContainer}>
                 {mockUpDate.map((item, key) => {
                     return <View key={key} style={styles.transactionContainer}>

@@ -2,7 +2,7 @@ export const homeTabs = [
   {
     name: 'Bill',
     image: require('../assets/bill.png'),
-    link: 'Bill',
+    link: 'BillScreen',
   },
   {
     name: 'Budget',
