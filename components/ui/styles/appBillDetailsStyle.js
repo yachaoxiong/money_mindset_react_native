@@ -11,7 +11,7 @@ export default styles = StyleSheet.create({
         justifyContent:'space-between',
         alignItems:'center',
         paddingLeft: 20,
-        paddingRight: 10,
+        paddingRight: 17,
         paddingTop:20,
         paddingBottom:10
     },

@@ -13,7 +13,8 @@ export default AppBillDetails = (props) => {
                 <Text>{month}</Text>
                 <Text>{income}</Text>
                 <Text>{expense}</Text>
-                <Text>{balance}  <Text style={{fontSize:15,fontWeight:'bold'}}>></Text></Text>
+                <Text>{balance}</Text>
+                <FontAwesomeIcon icon={faCaretRight} size={25} color='red'/>
             </View>
             <View style={styles.horizontalLine}></View>
         </TouchableOpacity>

@@ -1,1 +1,1 @@
-export const billDetailTableHeader = ['Month','Income','Expense','Balance'];
+export const billDetailTableHeader = ['Month','Income','Expense','Balance', 'Edit'];
