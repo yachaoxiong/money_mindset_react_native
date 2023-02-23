@@ -29,7 +29,7 @@ export default AppBudgetDetails = (props) => {
                 </View>
                 <View style={styles.budgetDetailsContainer}>
                     <View style={styles.budgetDetails}>
-                        <Text style={styles.balanceText}>Blance</Text>
+                        <Text style={styles.balanceText}>Balance</Text>
                         <Text style={styles.balanceText}>{balance}</Text>
                     </View>
                     <View style={styles.horizontalLine}></View>
