@@ -43,7 +43,7 @@ export default AppBudgetDetails = (props) => {
                     </View>
                 </View>
             </View>
-            <View style={styles.horizontalLine}></View>
+            {type?<View style={styles.horizontalLine}></View>:null}
         </View>
     )
 }

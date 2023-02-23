@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity} from 'react-native';
+import { View, Text, ScrollView} from 'react-native';
 import AppBudgetDetails from './AppBudgetDetails';
 import styles from './styles/appBudgetContentStyle';
 
@@ -48,8 +48,9 @@ export default AppBudgetContent = (props) => {
                     size = {45}
                     value = {totalExpense/totalBudget*100}                    
                 />
+                <View style={styles.dividingLine}></View>
             </View>
-            <View style={styles.monthlyBudgetContainer}>
+            <ScrollView style={styles.monthlyBudgetContainer}>
                 {mockupdata.activity.map((item,index)=>{
                     return <AppBudgetDetails 
                                 key={index}
@@ -61,7 +62,7 @@ export default AppBudgetContent = (props) => {
                                 type={item.type}              
                             />
                 })}
-            </View>
+            </ScrollView>
         </View>
     )
 }

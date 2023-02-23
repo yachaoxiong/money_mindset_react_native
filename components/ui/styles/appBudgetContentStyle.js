@@ -21,4 +21,10 @@ export default styles = StyleSheet.create({
     horizontalLine:{
         ...AppStyles.horizontalLine
     },
+    dividingLine:{
+        width:'100%',
+        marginTop:10,
+        borderWidth:8,
+        borderColor:'#F0F3F4',
+    }
 })
