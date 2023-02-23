@@ -1,8 +1,10 @@
 import React from 'react';
-import { View, ScrollView, Text } from 'react-native';
-import AppHomeHeader from '../components/ui/AppHomeHeader'
-import AppTransactionDetails from '../components/ui/AppTransactionDetail'
-import styles from './styles/useHomeStyle'
+import { View, ScrollView, Text, SafeAreaView } from 'react-native';
+import AppHomeHeader from '../components/ui/AppHomeHeader';
+import AppTransactionDetails from '../components/ui/AppTransactionDetail';
+import {homeTabs} from '../data/home';
+import TabsBarMenu from '../components/home/TabsBarMenu';
+import styles from './styles/useHomeStyle';
 
 export default HomeScreen = () => {
 
@@ -27,30 +29,35 @@ export default HomeScreen = () => {
             ]
         },
     ]
-    
+
     return (
         <View style={styles.container}>
-            <AppHomeHeader />
-            <ScrollView style={styles.topMenuItemContainer}>
-                {mockUpDate.map((item, key) => {
-                    return <View key={key} style={styles.transactionContainer}>
-                        <View style={styles.transactionHeaderContainer}>
-                            <View style={styles.date}>
-                                <Text style={styles.dateText}>{item.date} {item.year}</Text>
+            <SafeAreaView>
+                <AppHomeHeader />
+                <TabsBarMenu menuItems={homeTabs} />
+                <View style={styles.content}>
+                    <ScrollView style={styles.topMenuItemContainer}>
+                        {mockUpDate.map((item, key) => {
+                            return <View key={key} style={styles.transactionContainer}>
+                                <View style={styles.transactionHeaderContainer}>
+                                    <View style={styles.date}>
+                                        <Text style={styles.dateText}>{item.date} {item.year}</Text>
+                                    </View>
+                                    <View style={styles.incomeAndExpense}>
+                                        <Text style={styles.incomeText}>Income: {item.income}    Expense: {item.expense}</Text>
+                                    </View>
+                                </View>
+                                <View style={styles.horizonalLine}></View>
+                                <View style={styles.transactionDetails}>
+                                    {item.transactions.map((item, key) => {
+                                        return <AppTransactionDetails item={item} key={key} />
+                                    })}
+                                </View>
                             </View>
-                            <View style={styles.incomeAndExpense}>
-                                <Text style={styles.incomeText}>Income: {item.income}    Expense: {item.expense}</Text>
-                            </View>
-                        </View>
-                        <View style={styles.horizonalLine}></View>
-                        <View style={styles.transactionDetails}>
-                            {item.transactions.map((item, key) => {
-                                return <AppTransactionDetails item={item} key={key} />
-                            })}
-                        </View>
-                    </View>
-                })}
-            </ScrollView>
+                        })}
+                    </ScrollView>
+                </View>
+            </SafeAreaView>
         </View>
     )
 }

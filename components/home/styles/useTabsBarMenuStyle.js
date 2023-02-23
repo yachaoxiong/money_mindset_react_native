@@ -15,6 +15,7 @@ export default styles = StyleSheet.create({
     shadowColor: '#171717',
     shadowOpacity: 0.2,
     shadowRadius: 5,
+    zIndex:99
   },
   itemContainer: {
     flex: 1,

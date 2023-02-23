@@ -53,10 +53,6 @@ export default AppHomeHeader = (props) => {
                     </View>
                 </View>
             </View>
-            {/* Menu */}
-            <TabsBarMenu 
-                menuItems={homeTabs} 
-            />
         </View>
     )
 }

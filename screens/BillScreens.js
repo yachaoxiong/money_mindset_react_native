@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 import AppBillHeader from '../components/ui/AppBillHeader';
 import {billDetailTableHeader} from '../data/bill';
 import AppBillDetails from '../components/ui/AppBillDetails';
@@ -16,18 +16,22 @@ export default function BillScreen(props) {
 
     return (
         <View style={styles.container}>
-            <AppBillHeader/>
-            <View style={styles.billDetailTableHeader}>
-                {billDetailTableHeader.map((item,key)=>{
-                    return  <Text key={key} style={styles.tableHeaderText}>{item}</Text>
-                })}
-            </View>
-            <View style={styles.horizontalLine}></View>
-            <View style={styles.billDetailTableContainer}>
-                {mockupBillDate.map((item,index)=>{
-                    return <AppBillDetails key={index} monthDetail={item}/>
-                })}
-            </View>
+            <SafeAreaView>
+                <AppBillHeader/>
+                <View style={styles.content}>
+                    <View style={styles.billDetailTableHeader}>
+                        {billDetailTableHeader.map((item,key)=>{
+                            return  <Text key={key} style={styles.tableHeaderText}>{item}</Text>
+                        })}
+                    </View>
+                    <View style={styles.horizontalLine}></View>
+                    <View style={styles.billDetailTableContainer}>
+                        {mockupBillDate.map((item,index)=>{
+                            return <AppBillDetails key={index} monthDetail={item}/>
+                        })}
+                    </View>
+                </View>
+            </SafeAreaView>
         </View>
     )
 }

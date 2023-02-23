@@ -1,13 +1,14 @@
 import React from 'react'
 import { View,TouchableOpacity, Text,Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-import styles from './styles/useTabsBarMenuStyle'
+import styles from './styles/useTabsBarMenuStyle';
+
 export default function TabsBarMenu(props) {
 
   const { menuItems} = props;
   const navigation = useNavigation();
   const itemClick = (item,index) => {
-    navigation.navigate('BillScreen');
+    navigation.navigate(item.link);
   }
   const renderItems = menuItems.map((item, index) => {
     return (

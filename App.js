@@ -5,6 +5,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import getAppStyle from './common/styles';
 import LoginScreen from './screens/LoginScreen';
 import BillScreen from './screens/BillScreens';
+import BudgetScreen from './screens/BudgetScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import BottomNavigationTabs from './navigation/BottomNavigationTabs'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -57,8 +58,12 @@ export default function App() {
               }
               <Stack.Screen
                 name="BillScreen"
-                component={BillScreen} 
-                options={{ headerShown: false }}/>
+                component={BillScreen}
+                options={{ headerShown: false }} />
+              <Stack.Screen
+                name="BudgetScreen"
+                component={BudgetScreen}
+                options={{ headerShown: false }} />
             </Stack.Navigator>
           </NavigationContainer>
         )}
