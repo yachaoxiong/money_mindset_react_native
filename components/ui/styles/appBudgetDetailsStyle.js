@@ -27,7 +27,8 @@ export default styles = StyleSheet.create({
     budgetDetailsContainer:{
         width:'70%',
         display: 'flex',
-        flexDirection:'column'
+        flexDirection:'column',
+        padding:10
     },
     budgetDetails:{
         display:'flex',

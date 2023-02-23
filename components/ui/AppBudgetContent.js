@@ -57,7 +57,7 @@ export default AppBudgetContent = (props) => {
                                 expense = {item.expense}
                                 budget = {item.totalBudget}
                                 size = {40}
-                                value = {Number(item.expense)/Number(item.budget)}      
+                                value = {(Number(item.expense)/Number(item.totalBudget))*100} 
                                 type={item.type}              
                             />
                 })}
