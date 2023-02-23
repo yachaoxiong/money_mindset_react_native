@@ -56,7 +56,7 @@ export const AppStyles = {
     height:.8,
     marginTop:10,
     borderWidth:.8,
-    borderColor:'#CACFD2',
+    borderColor:'#F0F3F4',
   }
 }
 
