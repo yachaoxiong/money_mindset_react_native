@@ -3,26 +3,23 @@ import { StyleSheet } from 'react-native';
 
 export default styles = StyleSheet.create({
     container: {
-        height: '30%',
+        height: '19%',
         width: '100%',
-        backgroundColor: '#DA0452'
+        backgroundColor: '#DA0452',
     },
     logoContainer: {
-        flex: 1,
+        // flex: 1,
         alignItems: "center",
-        paddingTop: 5
     },
     logo: {
-        aspectRatio: 1.3,
+        aspectRatio: 1.4,
         resizeMode: 'contain',
-        marginTop:30
     },
     infoContainer: {
         display: 'flex',
         flexDirection: 'row',
         alignContent: 'center',
         zIndex:1,
-        top:-7,
         height:70
     },
     leftContainer: {
@@ -32,7 +29,7 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         width: '25%',
         paddingBottom: 18,
-        zIndex:99,
+        zIndex:101,
     },
     // Dropdpwn list component style
     // Begins

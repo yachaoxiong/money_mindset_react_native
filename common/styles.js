@@ -50,6 +50,13 @@ export const AppStyles = {
     radius: 5,
     borderWidth: 1,
     borderColor: '#052F5F',
+  },
+  horizontalLine:{
+    width:'100%',
+    height:.8,
+    marginTop:10,
+    borderWidth:.8,
+    borderColor:'#F0F3F4',
   }
 }
 

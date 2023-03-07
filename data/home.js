@@ -2,12 +2,12 @@ export const homeTabs = [
   {
     name: 'Bill',
     image: require('../assets/bill.png'),
-    link: 'Bill',
+    link: 'BillScreen',
   },
   {
     name: 'Budget',
     image: require('../assets/budget.png'),
-    link: 'Budget',
+    link: 'BudgetScreen',
   },
   {
     name: 'Assets',

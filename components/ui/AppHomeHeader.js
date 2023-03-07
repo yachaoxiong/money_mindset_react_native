@@ -1,21 +1,17 @@
 import React, { useState } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { SelectList } from 'react-native-dropdown-select-list'
-import calandarMonths from '../../utils/static'
-import AppTabItem from '../../components/ui/AppTabItem'
+import {calendarMonths} from '../../utils/static'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
-import { faMoneyBill } from '@fortawesome/free-solid-svg-icons'
-import { faBalanceScale } from '@fortawesome/free-solid-svg-icons'
-import { faImage } from '@fortawesome/free-solid-svg-icons'
-import { faMessage } from '@fortawesome/free-solid-svg-icons'
-import styles from './styles/appHeaderStyle';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import TabsBarMenu from '../home/TabsBarMenu';
 import { homeTabs } from '../../data/home';
 import AppTextAmount from './AppTextAmount';
+import styles from './styles/appHomeHeaderStyle';
 
-export default AppHeader = () => {
-    const [selected, setSelected] = React.useState("");
+export default AppHomeHeader = (props) => {
+
+    const [selectedListItem, setSelectedListItem] = React.useState("");
 
     return (
         <View style={styles.container}>
@@ -30,11 +26,11 @@ export default AppHeader = () => {
                 <View style={styles.leftContainer}>
                     <Text style={styles.text}>2023</Text>
                     <SelectList
-                        setSelected={(val) => setSelected(val)}
-                        data={calandarMonths}
+                        setSelected={(val) => setSelectedListItem(val)}
+                        data={calendarMonths}
                         search={false}
                         save="value"
-                        arrowicon={<FontAwesomeIcon icon={faArrowDown} size={15} color="#FFF" />}
+                        arrowicon={<FontAwesomeIcon icon={faCaretDown} size={15} color="#FFF" />}
                         boxStyles={styles.boxStyle}
                         inputStyles={styles.inputStyle}
                         dropdownStyles={styles.dropdownStyle}
@@ -57,8 +53,6 @@ export default AppHeader = () => {
                     </View>
                 </View>
             </View>
-            {/* Menu */}
-            <TabsBarMenu menuItems={homeTabs} />
         </View>
     )
 }
