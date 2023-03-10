@@ -26,7 +26,6 @@ export default BudgetScreen = () => {
         ]
     }
 
-
     return (
         <View style={styles.container}>
             <SafeAreaView>

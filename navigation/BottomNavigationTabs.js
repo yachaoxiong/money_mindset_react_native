@@ -4,7 +4,7 @@ import HomeScreen from '../screens/HomeScreen';
 import AnalysisScreen from '../screens/AnalysisScreen';
 import DiscoverScreen from '../screens/DiscoverScreen';
 import AboutScreen from '../screens/AboutScreen';
-import AddNewFlowScreen from '../screens/AddNewFlow';
+import AddNewFlowScreen from '../screens/AddNewFlowScreen';
 import AppTabItem from '../components/ui/AppTabItem'
 import { faHouse } from '@fortawesome/free-solid-svg-icons/faHouse'
 import { faChartSimple } from '@fortawesome/free-solid-svg-icons'
