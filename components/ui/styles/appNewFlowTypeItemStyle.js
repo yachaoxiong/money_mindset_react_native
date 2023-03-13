@@ -17,7 +17,7 @@ export default styles = StyleSheet.create({
       height:45,
    },
    menuText: {
-    fontSize: 13,
+    fontSize: 10,
     fontWeight: 'bold'
  },
 })

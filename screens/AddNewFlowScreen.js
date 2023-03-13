@@ -1,75 +1,71 @@
-import { View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native';
-import React,{ useContext, useState } from 'react'
+import { View, ScrollView, SafeAreaView, TouchableOpacity, Button, Text } from 'react-native';
+import React, { useContext, useState } from 'react'
 import AppAddNewFlowHeader from '../components/ui/AppAddNewFlowHeader';
 import AppNewFlowTypeItem from '../components/ui/AppNewFlowTypeItem';
-import AppInput from '../components/ui/AppInput';
 import AppCustomizedInput from '../components/ui/AppCustomizedInput';
 import { faHouse } from '@fortawesome/free-solid-svg-icons/faHouse';
+import { incomeType } from '../utils/static'
 import styles from './styles/useNewFlow';
 
 export default AddNewFlowScreen = () => {
 
     const [amount, setAmount] = useState('');
+    const [date, setDate] = useState('');
+    const [notes, setNotes] = useState('');
+
+    const submit = () => {
+
+    }
 
     return (
         <View style={styles.container}>
             <SafeAreaView>
-                <AppAddNewFlowHeader/>
-                <View style={styles.content}>
+                <AppAddNewFlowHeader />
+                <ScrollView style={styles.content}>
                     <View style={styles.options}>
-                        <View style={styles.option}>
-                            <AppNewFlowTypeItem icon = {faHouse} size={25} text="test"/>
-                        </View>
-                        <View style={styles.option}>
-                            <AppNewFlowTypeItem icon = {faHouse} size={25} text="test"/>
-                        </View>
-                        <View style={styles.option}>
-                            <AppNewFlowTypeItem icon = {faHouse} size={25} text="test"/>
-                        </View>
-                        <View style={styles.option}>
-                            <AppNewFlowTypeItem icon = {faHouse} size={25} text="test"/>
-                        </View>
-                        <View style={styles.option}>
-                            <AppNewFlowTypeItem icon = {faHouse} size={25} text="test"/>
-                        </View>
-                        <View style={styles.option}>
-                            <AppNewFlowTypeItem icon = {faHouse} size={25} text="test"/>
-                        </View>
-                        <View style={styles.option}>
-                            <AppNewFlowTypeItem icon = {faHouse} size={25} text="test"/>
-                        </View>
-                        <View style={styles.option}>
-                            <AppNewFlowTypeItem icon = {faHouse} size={25} text="test"/>
-                        </View>
-                        <View style={styles.option}>
-                            <AppNewFlowTypeItem icon = {faHouse} size={25} text="test"/>
-                        </View>
-                        <View style={styles.option}>
-                            <AppNewFlowTypeItem icon = {faHouse} size={25} text="test"/>
-                        </View>
-                        <View style={styles.option}>
-                            <AppNewFlowTypeItem icon = {faHouse} size={25} text="test"/>
-                        </View>
-                        <View style={styles.option}>
-                            <AppNewFlowTypeItem icon = {faHouse} size={25} text="test"/>
-                        </View>
+                        {incomeType.map((item,key)=>{
+                            return (
+                                <View style={styles.option}>
+                                    <AppNewFlowTypeItem icon={item.icon} size={25} text={item.text} />
+                                </View>
+                            )
+                        })}
                     </View>
-
-                    <View style={styles.line}></View>
-
-                    <View style={styles.optionInfo}>
+                    <View style={styles.detailsInfo_container}>
+                        <View style={styles.line}></View>
+                        <View style={styles.amountAndDateInputField}>
+                            <AppCustomizedInput
+                                placeholder="Amount"
+                                value={amount}
+                                onChangeText={text => setAmount(text)}
+                                width={170}
+                                height={40}
+                            />
+                            <AppCustomizedInput
+                                placeholder="Date"
+                                value={amount}
+                                onChangeText={text => setDate(text)}
+                                width={140}
+                                height={40}
+                            />
+                        </View>
                         <AppCustomizedInput
-                            placeholder="Amount"
+                            placeholder="Notes"
                             value={amount}
-                            onChangeText={text => setAmount(text)}
-                            width={160}
-                            height={30}
-                            backgroundColor="#D9D9D9"
-                            placeholderTextColor="black"
+                            onChangeText={text => setNotes(text)}
+                            width="90%"
+                            height={80}
+                            multiline={true}
+                            marginLeft="5%"
                         />
+                        <TouchableOpacity
+                            style={styles.touchableOpacity_submit}
+                            onPress={() => submit()}
+                        >
+                            <Button title="Submit" color="white" />
+                        </TouchableOpacity>
                     </View>
-
-                </View>
+                </ScrollView>
             </SafeAreaView>
         </View>
     )

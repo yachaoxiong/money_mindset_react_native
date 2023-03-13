@@ -3,7 +3,7 @@ import {AppStyles} from '../../common/styles'
 
 export default styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex:1,
         backgroundColor: '#DA0452'
     },
     content:{
@@ -17,7 +17,11 @@ export default styles = StyleSheet.create({
         justifyContent:'space-between',
         paddingLeft: 30,
         paddingRight:30,
-        height:'50%'
+        // height:'43%'
+    },
+    detailsInfo_container: {
+        // height:'57%'
+        marginTop:90
     },
     line:{
         borderBottomColor: 'black',
@@ -29,7 +33,18 @@ export default styles = StyleSheet.create({
         width:'25%',
         marginTop:20
     },
-    optionInfo:{
-
-    }
+    amountAndDateInputField: {
+        display: "flex",
+        flexDirection:'row',
+        padding:20,
+        justifyContent:'space-between'
+    },
+    touchableOpacity_submit:{
+        backgroundColor:'#DA0452',
+        width:'90%',
+        height:40,
+        marginLeft:'5%',
+        marginTop:20,
+        borderRadius:5,
+    },
 })

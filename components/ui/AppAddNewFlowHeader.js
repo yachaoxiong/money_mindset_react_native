@@ -21,8 +21,8 @@ export default AppAddNewFlowHeader = () => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerText}>Income</Text>
                 <Text style={styles.headerText}>Expense</Text>
+                <Text style={styles.headerText}>Income</Text>
             </View>
         </View>
     )
