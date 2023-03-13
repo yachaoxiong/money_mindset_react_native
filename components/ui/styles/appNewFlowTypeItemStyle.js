@@ -7,7 +7,19 @@ export default styles = StyleSheet.create({
       justifyContent: 'center',
       top: 0,
    },
-   menuItem: {
+   menuItem_selected: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius:50,
+      backgroundColor:'#D9D9D9',
+      width:45,
+      height:45,
+      backgroundColor:"#FECFE0",
+      borderColor:'red',
+      borderWidth:1
+   },
+   menuItem_unSelected: {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',

@@ -12,6 +12,7 @@ export default AddNewFlowScreen = () => {
     const [amount, setAmount] = useState('');
     const [date, setDate] = useState('');
     const [notes, setNotes] = useState('');
+    const [selectedType, setSelectedType] = useState('');
 
     const submit = () => {
 
@@ -23,10 +24,10 @@ export default AddNewFlowScreen = () => {
                 <AppAddNewFlowHeader />
                 <ScrollView style={styles.content}>
                     <View style={styles.options}>
-                        {incomeType.map((item,key)=>{
+                        {incomeType.map((item,index)=>{
                             return (
-                                <View style={styles.option}>
-                                    <AppNewFlowTypeItem icon={item.icon} size={25} text={item.text} />
+                                <View style={styles.option} key={index}>
+                                    <AppNewFlowTypeItem icon={item.icon} size={25} text={item.text} selectedType = {selectedType} setSelectedType = {setSelectedType}/>
                                 </View>
                             )
                         })}
