@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faUtensils, faTv, faBagShopping, faCarSide, faHouseUser, faMobile, faLightbulb, faWater, faTrash, faGlobe, faPen, faBook } from '@fortawesome/free-solid-svg-icons';
+
 export const calendarMonths = [
     { key: '1', value: '01' },
     { key: '2', value: '02' },
@@ -26,4 +29,19 @@ export const calendarYear = [
     { key: '10', value: '2032' },
     { key: '11', value: '2033' },
     { key: '12', value: '2034' },
+]
+
+export const incomeType = [
+    { icon: faUtensils, text: "Food"},
+    { icon: faTv, text: "Appliance"},
+    { icon: faBagShopping, text: "Daily Expenses"},
+    { icon: faHouseUser, text: "Rent"},
+    { icon: faCarSide, text: "Transportation"},
+    { icon: faLightbulb, text: "Electricity"},
+    { icon: faMobile, text: "Phone Bill"},
+    { icon: faWater, text: "Water Bill"},
+    { icon: faTrash, text: "Trash"},
+    { icon: faGlobe, text: "Internet"},
+    { icon: faBook, text: "Book"},
+    { icon: faPen, text: "Others"},
 ]
