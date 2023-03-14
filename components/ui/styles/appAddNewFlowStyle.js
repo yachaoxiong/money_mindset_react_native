@@ -15,11 +15,33 @@ export default styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent:'space-between',
-        marginBottom:0,
         paddingLeft:70,
         paddingRight:70
     },
     headerText:{
+        color:'white',
+        fontWeight:'bold',
+        fontSize:18
+    },
+    selected:{
+        borderColor:'white',
+        borderWidth:1,
+        padding:10,
+        backgroundColor:'white',
+        height:50,
+    },
+    unselected:{
+        borderWidth:0,
+        padding:10,
+        backgroundColor:'#DA0452',
+        height:50,
+    },
+    selectedText:{
+        color:'red',
+        fontWeight:'bold',
+        fontSize:18
+    },
+    unselectedText:{
         color:'white',
         fontWeight:'bold',
         fontSize:18

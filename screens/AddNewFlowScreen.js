@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import AppAddNewFlowHeader from '../components/ui/AppAddNewFlowHeader';
 import AppNewFlowTypeItem from '../components/ui/AppNewFlowTypeItem';
-import AppDatePicker from '../components/ui/AppDatePicker';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import AppCustomizedInput from '../components/ui/AppCustomizedInput';
@@ -12,6 +11,7 @@ import styles from './styles/useNewFlow';
 
 export default AddNewFlowScreen = () => {
 
+    const [currentSection, setCurrentSection] = useState('Expense');
     const [amount, setAmount] = useState('');
     const [date, setDate] = useState("2023-7-13");
     const [notes, setNotes] = useState('');
@@ -26,10 +26,14 @@ export default AddNewFlowScreen = () => {
         navigation.navigate('DatePickerScreen',{setDate:setDate});
     }
 
+    const handleDate = (date) => {
+        return date.substr(1,10);
+    }
+
     return (
         <View style={styles.container}>
             <SafeAreaView>
-                <AppAddNewFlowHeader />
+                <AppAddNewFlowHeader setCurrentSection={setCurrentSection} currentSection={currentSection}/>
                 <ScrollView style={styles.content}>
                     <View style={styles.options}>
                         {incomeType.map((item, index) => {
@@ -56,7 +60,7 @@ export default AddNewFlowScreen = () => {
                                     onPress={()=>navigateToDatePickScreen()}>
                                     <FontAwesomeIcon icon={faCalendar} size={30} color='red'/>
                                 </TouchableOpacity>
-                                <TextInput style={styles.textInput_date} editable={false}>{date}</TextInput>
+                                <TextInput style={styles.textInput_date} editable={false}>{handleDate(date)}</TextInput>
                             </View>
                         </View>
                         <AppCustomizedInput
