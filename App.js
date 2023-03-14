@@ -7,6 +7,7 @@ import LoginScreen from './screens/LoginScreen';
 import BillScreen from './screens/BillScreens';
 import BudgetScreen from './screens/BudgetScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import DatePickerScreen from './screens/DatePickerScreen';
 import BottomNavigationTabs from './navigation/BottomNavigationTabs'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import StoreContextProvider from './store/store';
@@ -64,6 +65,10 @@ export default function App() {
                 name="BudgetScreen"
                 component={BudgetScreen}
                 options={{ headerShown: false }} />
+              <Stack.Screen
+                name="DatePickerScreen"
+                component={DatePickerScreen}
+                options={{ headerShown: true }} />
             </Stack.Navigator>
           </NavigationContainer>
         )}

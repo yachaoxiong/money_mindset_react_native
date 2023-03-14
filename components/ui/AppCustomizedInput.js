@@ -2,7 +2,7 @@ import React,{ useState } from 'react'
 import { TextInput, View, Text } from 'react-native';
 
 export const AppCustomizedInput = (props) => {
-    const { placeholder, value, onChangeText,placeholderTextColor,width,height } = props;
+    const { placeholder, value, onChangeText,placeholderTextColor} = props;
     const [isFocused, setIsFocused] = useState(false);
     return (
         <View>
