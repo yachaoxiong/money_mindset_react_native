@@ -16,7 +16,7 @@ export default AppAddNewFlowHeader = (props) => {
                 <TouchableOpacity onPress = {()=>setCurrentSection("Income")} style={currentSection==="Income"?styles.selected : styles.unselected}>
                     <Text style={currentSection==="Income"?styles.selectedText : styles.unselectedText}>Income</Text>
                 </TouchableOpacity>
-            </View>
+            </View>    
         </View>
     )
 }
