@@ -29,6 +29,7 @@ export default styles = StyleSheet.create({
         padding:10,
         backgroundColor:'white',
         height:50,
+        borderRadius:7
     },
     unselected:{
         borderWidth:0,

@@ -6,14 +6,14 @@ import AppNewFlowTypeItem from '../components/ui/AppNewFlowTypeItem';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import AppCustomizedInput from '../components/ui/AppCustomizedInput';
-import { incomeType } from '../utils/static';
+import { expenseType, incomeType } from '../utils/static';
 import styles from './styles/useNewFlow';
 
 export default AddNewFlowScreen = () => {
 
     const [currentSection, setCurrentSection] = useState('Expense');
     const [amount, setAmount] = useState('');
-    const [date, setDate] = useState("2023-7-13");
+    const [date, setDate] = useState("'2023-7-13");
     const [notes, setNotes] = useState('');
     const [selectedType, setSelectedType] = useState('');
     const navigation = useNavigation();
@@ -36,7 +36,13 @@ export default AddNewFlowScreen = () => {
                 <AppAddNewFlowHeader setCurrentSection={setCurrentSection} currentSection={currentSection}/>
                 <ScrollView style={styles.content}>
                     <View style={styles.options}>
-                        {incomeType.map((item, index) => {
+                        {currentSection === "Expense" ? expenseType.map((item, index) => {
+                            return (
+                                <View style={styles.option} key={index}>
+                                    <AppNewFlowTypeItem icon={item.icon} size={25} text={item.text} selectedType={selectedType} setSelectedType={setSelectedType} />
+                                </View>
+                            )
+                        }):incomeType.map((item, index) => {
                             return (
                                 <View style={styles.option} key={index}>
                                     <AppNewFlowTypeItem icon={item.icon} size={25} text={item.text} selectedType={selectedType} setSelectedType={setSelectedType} />

@@ -1,11 +1,10 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import React, { useContext } from 'react'
 import styles from './styles/useAboutStyle'
 import { removeToken } from '../utils/functions';
 import { StoreContext } from '../store/store';
 
-export default AboutScreen = () => {
+export default ProfileScreen = () => {
    
     const { myUser, updateUser } = useContext(StoreContext);
 

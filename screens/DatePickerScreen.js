@@ -12,8 +12,10 @@ export default class DatePickerScreen extends Component {
   }
 
   onDateChange(date) {
+    console.log(date);
     this.props.route.params.setDate(JSON.stringify(date));
   }
+  
   render() {
     return (
       <View style={styles.container}>
