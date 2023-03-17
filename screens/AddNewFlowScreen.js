@@ -1,5 +1,6 @@
 import { View, ScrollView, SafeAreaView, TouchableOpacity, Button, TextInput, Text } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { getTodayDate, getToken } from '../utils/functions';
 import { useNavigation } from '@react-navigation/native';
 import AppAddNewFlowHeader from '../components/ui/AppAddNewFlowHeader';
 import AppNewFlowTypeItem from '../components/ui/AppNewFlowTypeItem';
@@ -13,27 +14,51 @@ export default AddNewFlowScreen = () => {
 
     const [currentSection, setCurrentSection] = useState('Expense');
     const [amount, setAmount] = useState('');
-    const [date, setDate] = useState("'2023-7-13");
+    const [date, setDate] = useState(getTodayDate());
     const [notes, setNotes] = useState('');
     const [selectedType, setSelectedType] = useState('');
-    const navigation = useNavigation();
-   
-    const submit = () => {
 
+    const navigation = useNavigation();
+
+    const submit = async () => {
+        const token = await getToken();
+        if (!token) return;
+        return fetch('http://localhost:5000/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify({
+                name: currentSection,
+                amount: amount,
+                billType: selectedType,
+                iconName: "food",
+                billDate: date
+            })
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                return responseJson;
+            })
+            .catch((error) => {
+                console.log("in error???");
+                console.error(error);
+            });
     }
 
     const navigateToDatePickScreen = () => {
-        navigation.navigate('DatePickerScreen',{setDate:setDate});
+        navigation.navigate('DatePickerScreen', { setDate: setDate });
     }
 
     const handleDate = (date) => {
-        return date.substr(1,10);
+        return date.substr(1, 10);
     }
 
     return (
         <View style={styles.container}>
             <SafeAreaView>
-                <AppAddNewFlowHeader setCurrentSection={setCurrentSection} currentSection={currentSection}/>
+                <AppAddNewFlowHeader setCurrentSection={setCurrentSection} currentSection={currentSection} />
                 <ScrollView style={styles.content}>
                     <View style={styles.options}>
                         {currentSection === "Expense" ? expenseType.map((item, index) => {
@@ -42,7 +67,7 @@ export default AddNewFlowScreen = () => {
                                     <AppNewFlowTypeItem icon={item.icon} size={25} text={item.text} selectedType={selectedType} setSelectedType={setSelectedType} />
                                 </View>
                             )
-                        }):incomeType.map((item, index) => {
+                        }) : incomeType.map((item, index) => {
                             return (
                                 <View style={styles.option} key={index}>
                                     <AppNewFlowTypeItem icon={item.icon} size={25} text={item.text} selectedType={selectedType} setSelectedType={setSelectedType} />
@@ -52,26 +77,24 @@ export default AddNewFlowScreen = () => {
                     </View>
                     <View style={styles.detailsInfo_container}>
                         <View style={styles.line}></View>
-                        {/* <AppDatePicker setDate = {setDate}/> */}
                         <View style={styles.amountAndDateInputField}>
                             <AppCustomizedInput
                                 placeholder="Amount"
-                                value={amount}
                                 onChangeText={text => setAmount(text)}
                                 width={160}
                                 height={40}
                             />
                             <View style={styles.datePickerContainer}>
                                 <TouchableOpacity
-                                    onPress={()=>navigateToDatePickScreen()}>
-                                    <FontAwesomeIcon icon={faCalendar} size={30} color='red'/>
+                                    onPress={() => navigateToDatePickScreen()}>
+                                    <FontAwesomeIcon icon={faCalendar} size={30} color='red' />
                                 </TouchableOpacity>
                                 <TextInput style={styles.textInput_date} editable={false}>{handleDate(date)}</TextInput>
                             </View>
                         </View>
                         <AppCustomizedInput
                             placeholder="Notes"
-                            value={amount}
+                            value={notes}
                             onChangeText={text => setNotes(text)}
                             width="90%"
                             height={80}
@@ -82,7 +105,8 @@ export default AddNewFlowScreen = () => {
                             style={styles.touchableOpacity_submit}
                             onPress={() => submit()}
                         >
-                            <Button title="Submit" color="white" />
+                            {/* <Text>Submit</Text> */}
+                            {/* <Button title="Submit" color="white" /> */}
                         </TouchableOpacity>
                     </View>
                 </ScrollView>

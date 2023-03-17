@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faUtensils, faTv, faBagShopping, faCarSide, faHouseUser, faMobile, faLightbulb, faWater, faTrash, faGlobe, faPen, faBook } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyBill,faMoneyCheckDollar, faMap, faHouse, faMoneyBills, faGift, faFilterCircleDollar, faCoins } from '@fortawesome/free-solid-svg-icons';
 
