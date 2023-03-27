@@ -2,7 +2,7 @@ import React,{ useEffect, useState } from 'react'
 import { getAllBills } from '../services/billService'
 import { StoreContext } from '../store/store'
 
-export default function usePatientHooks() {
+export default function useBills() {
   const { isRefreshing } = React.useContext(StoreContext)
   const [bill, setBills] = useState([])
 

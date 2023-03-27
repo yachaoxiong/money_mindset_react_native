@@ -22,7 +22,7 @@ export default HomeScreen = () => {
         })
         return [income,expense];
     }
-
+    
     return (
         <View style={styles.container}>
             <SafeAreaView>
