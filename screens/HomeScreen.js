@@ -4,11 +4,11 @@ import AppHomeHeader from '../components/ui/AppHomeHeader';
 import AppTransactionDetails from '../components/ui/AppTransactionDetail';
 import { homeTabs } from '../data/home';
 import TabsBarMenu from '../components/home/TabsBarMenu';
-import useBill from '../hooks/useBill';
+import useBills from '../hooks/useBill';
 import styles from './styles/useHomeStyle';
 
 export default HomeScreen = () => {
-    const bills = useBill();
+    const bills = useBills();
 
     const calculateIncome = (item) => {
         let income = 0;
