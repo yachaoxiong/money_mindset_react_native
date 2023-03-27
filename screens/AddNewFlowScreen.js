@@ -1,50 +1,50 @@
 import { View, ScrollView, SafeAreaView, TouchableOpacity, Button, TextInput, Text } from 'react-native';
-import React, { useState, useRef } from 'react';
-import { getTodayDate, getToken } from '../utils/functions';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState,useContext } from 'react';
 import AppAddNewFlowHeader from '../components/ui/AppAddNewFlowHeader';
 import AppNewFlowTypeItem from '../components/ui/AppNewFlowTypeItem';
+import AppCustomizedInput from '../components/ui/AppCustomizedInput';
+import { StoreContext } from '../store/store';
+import { getTodayDate } from '../utils/functions';
+import { useNavigation } from '@react-navigation/native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
-import AppCustomizedInput from '../components/ui/AppCustomizedInput';
 import { expenseType, incomeType } from '../utils/static';
+import { addNewBill } from '../services/billService';
+
 import styles from './styles/useNewFlow';
 
 export default AddNewFlowScreen = () => {
 
+    const { setIsRefreshing } = useContext(StoreContext);
     const [currentSection, setCurrentSection] = useState('Expense');
     const [amount, setAmount] = useState('');
     const [date, setDate] = useState(getTodayDate());
     const [notes, setNotes] = useState('');
     const [selectedType, setSelectedType] = useState('');
+    const [iconName, setIconName] = useState('');
 
     const navigation = useNavigation();
 
-    const submit = async () => {
-        const token = await getToken();
-        if (!token) return;
-        return fetch('http://localhost:3000/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'authorization': 'Bearer ' + token
-            },
-            body: JSON.stringify({
+    const submit = () => {
+        if(!checkAmount(amount)) return;
+        try {
+            addNewBill({
                 name: currentSection,
                 amount: amount,
                 billType: selectedType,
-                iconName: "food",
+                iconName: iconName,
                 billDate: date
+            }).then(res => {
+                console.log(res);
+                setIsRefreshing(pre=>!pre)
             })
-        })
-            .then((response) => response.json())
-            .then((responseJson) => {
-                return responseJson;
-            })
-            .catch((error) => {
-                console.log("in error???");
-                console.error(error);
-            });
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    const checkAmount = (amount) => {
+        return true;
     }
 
     const navigateToDatePickScreen = () => {
@@ -64,13 +64,13 @@ export default AddNewFlowScreen = () => {
                         {currentSection === "Expense" ? expenseType.map((item, index) => {
                             return (
                                 <View style={styles.option} key={index}>
-                                    <AppNewFlowTypeItem icon={item.icon} size={25} text={item.text} selectedType={selectedType} setSelectedType={setSelectedType} />
+                                    <AppNewFlowTypeItem icon={item.icon} size={25} text={item.text} iconName={item.iconName} selectedType={selectedType} setSelectedType={setSelectedType} setIconName={setIconName} />
                                 </View>
                             )
                         }) : incomeType.map((item, index) => {
                             return (
                                 <View style={styles.option} key={index}>
-                                    <AppNewFlowTypeItem icon={item.icon} size={25} text={item.text} selectedType={selectedType} setSelectedType={setSelectedType} />
+                                    <AppNewFlowTypeItem icon={item.icon} size={25} text={item.text} iconName={item.iconName} selectedType={selectedType} setSelectedType={setSelectedType} setIconName={setIconName} />
                                 </View>
                             )
                         })}
@@ -89,7 +89,7 @@ export default AddNewFlowScreen = () => {
                                     onPress={() => navigateToDatePickScreen()}>
                                     <FontAwesomeIcon icon={faCalendar} size={30} color='red' />
                                 </TouchableOpacity>
-                                <TextInput style={styles.textInput_date} editable={false}>{handleDate(date)}</TextInput>
+                                <TextInput style={styles.textInput_date} editable={false}>{date}</TextInput>
                             </View>
                         </View>
                         <AppCustomizedInput
@@ -105,8 +105,7 @@ export default AddNewFlowScreen = () => {
                             style={styles.touchableOpacity_submit}
                             onPress={() => submit()}
                         >
-                            {/* <Text>Submit</Text> */}
-                            {/* <Button title="Submit" color="white" /> */}
+                            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: '18' }}>Submit</Text>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>

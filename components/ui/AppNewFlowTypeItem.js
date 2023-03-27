@@ -4,10 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
 export default AppNewFlowTypeItem = (props) => {
 
-    const {text, setSelectedType, selectedType} = props;
+    const {iconName, text, setSelectedType, selectedType, setIconName} = props;
+
+    const setSelectedTypeAndIconName = () => {
+        setSelectedType(text);
+        setIconName(iconName);
+    }
 
     return (
-        <TouchableOpacity onPress={()=>setSelectedType(text)}>
+        <TouchableOpacity onPress={()=>setSelectedTypeAndIconName()}>
             <View style={styles.tab}>
                 <View style={text === selectedType ? styles.menuItem_selected : styles.menuItem_unSelected}>
                     <FontAwesomeIcon {...props} color={text === selectedType ? 'red' : 'black'}/>

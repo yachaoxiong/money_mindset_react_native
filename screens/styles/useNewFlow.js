@@ -46,6 +46,8 @@ export default styles = StyleSheet.create({
         marginLeft:'5%',
         marginTop:20,
         borderRadius:5,
+        justifyContent:'center',
+        alignItems:'center'
     },
     datePickerContainer:{
         display: "flex",

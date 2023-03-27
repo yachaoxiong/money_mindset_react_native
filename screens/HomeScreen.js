@@ -2,33 +2,26 @@ import React from 'react';
 import { View, ScrollView, Text, SafeAreaView } from 'react-native';
 import AppHomeHeader from '../components/ui/AppHomeHeader';
 import AppTransactionDetails from '../components/ui/AppTransactionDetail';
-import {homeTabs} from '../data/home';
+import { homeTabs } from '../data/home';
 import TabsBarMenu from '../components/home/TabsBarMenu';
+import useBill from '../hooks/useBill';
 import styles from './styles/useHomeStyle';
 
 export default HomeScreen = () => {
+    const bills = useBill();
 
-    const mockUpDate = [
-        {
-            date: "02-15",
-            year: "2023",
-            income: "150",
-            expense: "80",
-            transactions: [
-                { activity: "Phone", cost: "-150" },
-                { activity: "Part-time", cost: "200" },
-            ]
-        },
-        {
-            date: "02-16",
-            year: "2023",
-            income: "50",
-            expense: "100",
-            transactions: [
-                { activity: "Food", cost: "-150" },
-            ]
-        },
-    ]
+    const calculateIncome = (item) => {
+        let income = 0;
+        let expense = 0;
+        item.billItems.forEach(item=>{
+            if(item.name === "Income"){
+                income+=Number(item.amount);
+            }else{
+                expense+=Number(item.amount);
+            }
+        })
+        return [income,expense];
+    }
 
     return (
         <View style={styles.container}>
@@ -37,24 +30,26 @@ export default HomeScreen = () => {
                 <TabsBarMenu menuItems={homeTabs} />
                 <View style={styles.content}>
                     <ScrollView style={styles.topMenuItemContainer}>
-                        {mockUpDate.map((item, key) => {
-                            return <View key={key} style={styles.transactionContainer}>
+                    {
+                        bills.map((item, index) => {
+                            return <View key={index} style={styles.transactionContainer}>
                                 <View style={styles.transactionHeaderContainer}>
                                     <View style={styles.date}>
-                                        <Text style={styles.dateText}>{item.date} {item.year}</Text>
+                                        <Text style={styles.dateText}>{item._id}</Text>
                                     </View>
                                     <View style={styles.incomeAndExpense}>
-                                        <Text style={styles.incomeText}>Income: {item.income}    Expense: {item.expense}</Text>
+                                        <Text style={styles.incomeText}>Income: {calculateIncome(item)[0]}    Expense: {calculateIncome(item)[1]}</Text>
                                     </View>
                                 </View>
-                                <View style={styles.horizonalLine}></View>
+                                <View style={styles.horizontalLine}></View>
                                 <View style={styles.transactionDetails}>
-                                    {item.transactions.map((item, key) => {
+                                    {item.billItems.map((item, key) => {
                                         return <AppTransactionDetails item={item} key={key} />
                                     })}
                                 </View>
                             </View>
-                        })}
+                        })
+                    }
                     </ScrollView>
                 </View>
             </SafeAreaView>

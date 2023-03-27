@@ -1,7 +1,7 @@
 import { getToken } from "../utils/functions";
 import fetch from "node-fetch";
 
-const baseUrl = 'https://bewildered-ruby-tadpole.cyclic.app';
+const baseUrl = 'http://localhost:3000';
 
 export const getAllBills = async () => {
   const token = await getToken();
@@ -64,7 +64,7 @@ export const updateBill = async (bill) => {
   );
 }
 
-export const addNewPBill = async (bill) => {
+export const addNewBill = async (bill) => {
   const token = await getToken();
   return fetch(baseUrl + '/api/bill', {
     method: 'POST',
