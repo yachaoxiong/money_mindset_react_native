@@ -28,5 +28,8 @@ export default styles = StyleSheet.create({
         color:'#DA0452',
         fontWeight:'bold',
         fontSize:18
+    },
+    leaderboardDetailsContainer:{
+        marginLeft:10
     }
 })

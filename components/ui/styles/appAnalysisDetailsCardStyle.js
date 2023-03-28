@@ -1,6 +1,4 @@
-import getAppStyle from '../../../common/styles'
 import { StyleSheet } from 'react-native';
-
 export default styles = StyleSheet.create({
     container: {
         backgroundColor:'#F8F4F3',
@@ -9,7 +7,8 @@ export default styles = StyleSheet.create({
         paddingLeft:15,
         paddingTop:15,
         paddingBottom:10,
-        marginLeft:10
+        marginLeft:10,
+        borderRadius:5
     },
     periodHeader_text:{
         fontSize:18,

@@ -6,6 +6,13 @@ import AppAnalysisDetailsCard from '../components/ui/AppAnalysisDetailsCard';
 import AppLeaderboardDetailsCard from '../components/ui/AppLeaderboardDetailsCard';
 import styles from './styles/useAnalysis';
 
+
+// for test purpose
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faGift } from '@fortawesome/free-solid-svg-icons';
+import { faCar } from '@fortawesome/free-solid-svg-icons';
+import { faBank } from '@fortawesome/free-solid-svg-icons';
+
 export default AnalysisScreen = () => {
     const [currentSection, setCurrentSection] = useState('Expense');
     const [currentTitle, setCurrentTitle] = useState('WEEK');
@@ -35,9 +42,9 @@ export default AnalysisScreen = () => {
                     <View style={styles.leaderboardContainer}>
                         <Text style={styles.leaderboardHeader_text}>{currentSection} Leaderboard</Text>
                         <View style={styles.leaderboardDetailsContainer}>
-                            <AppLeaderboardDetailsCard/>
-                            <AppLeaderboardDetailsCard/>
-                            <AppLeaderboardDetailsCard/>
+                            <AppLeaderboardDetailsCard icon = {faGift} type="Gift" rate={1}/>
+                            <AppLeaderboardDetailsCard icon = {faBank} type="Bank" rate={0.5}/>
+                            <AppLeaderboardDetailsCard icon = {faCar} type="Car" rate={0.25}/>
                         </View>
                     </View>
                 </ScrollView>
