@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, SafeAreaView } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import AppBudgetHeader from '../components/ui/AppBudgetHeader';
 import AppBudgetContent from '../components/ui/AppBudgetContent';
 import styles from './styles/useBudgetStyle';

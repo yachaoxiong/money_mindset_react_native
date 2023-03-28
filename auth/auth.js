@@ -1,6 +1,7 @@
 import { setToken, getToken } from '../utils/functions';
 import fetch from 'node-fetch';
-const baseUrl = 'https://bewildered-ruby-tadpole.cyclic.app';
+// const baseUrl = 'https://bewildered-ruby-tadpole.cyclic.app';
+const baseUrl = "http://localhost:3000"
 export const login = ( username, password) => {
   return fetch(`${baseUrl}/api/auth/login`, {
     method: 'POST',

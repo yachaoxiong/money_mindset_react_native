@@ -46,5 +46,25 @@ export default styles = StyleSheet.create({
         marginLeft:'5%',
         marginTop:20,
         borderRadius:5,
+        justifyContent:'center',
+        alignItems:'center'
     },
+    datePickerContainer:{
+        display: "flex",
+        flexDirection:"row",
+        alignItems:'center'
+    },
+    textInput_date:{
+        backgroundColor:'#D9D9D9',
+        width:140,
+        height:40,
+        borderRadius:5,
+        padding: 10
+    },
+    touchableOpacity_date: {
+        backgroundColor:'#D9D9D9',
+        width:140,
+        height:40,
+        borderRadius:5
+    }
 })

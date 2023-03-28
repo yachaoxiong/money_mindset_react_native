@@ -25,4 +25,9 @@ export const removeToken = async () => {
   }
 }
 
+export const getTodayDate = () => {
+ const currentDate = new Date().toISOString().slice(0, 10);
+ return " "+currentDate;
+}
+
 

@@ -2,15 +2,11 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import AnalysisScreen from '../screens/AnalysisScreen';
-import DiscoverScreen from '../screens/DiscoverScreen';
-import AboutScreen from '../screens/AboutScreen';
+import AssetsScreen from '../screens/AssetsScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 import AddNewFlowScreen from '../screens/AddNewFlowScreen';
 import AppTabItem from '../components/ui/AppTabItem'
-import { faHouse } from '@fortawesome/free-solid-svg-icons/faHouse'
-import { faChartSimple } from '@fortawesome/free-solid-svg-icons'
-import { faEarth } from '@fortawesome/free-solid-svg-icons'
-import { faCircleInfo } from '@fortawesome/free-solid-svg-icons'
-import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faChartSimple, faEarth, faCircleInfo, faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 
 const BottomTab = createBottomTabNavigator();
 
@@ -55,8 +51,8 @@ export default BottomTabs = () => {
                 }}
                 />
             <BottomTab.Screen 
-                name="Discover" 
-                component={DiscoverScreen} 
+                name="Assets" 
+                component={AssetsScreen} 
                 options={{
                     tabBarIcon: ({ focused }) => {
                         return (
@@ -65,8 +61,8 @@ export default BottomTabs = () => {
                     },
                 }}/>
             <BottomTab.Screen 
-                name="About" 
-                component={AboutScreen} 
+                name="Profile" 
+                component={ProfileScreen} 
                 options={{
                     tabBarIcon: ({ focused }) => {
                         return (

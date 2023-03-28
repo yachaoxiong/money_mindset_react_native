@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faUtensils, faTv, faBagShopping, faCarSide, faHouseUser, faMobile, faLightbulb, faWater, faTrash, faGlobe, faPen, faBook } from '@fortawesome/free-solid-svg-icons';
+import { faMoneyBill,faMoneyCheckDollar, faMap, faHouse, faMoneyBills, faGift, faFilterCircleDollar, faCoins } from '@fortawesome/free-solid-svg-icons';
 
 export const calendarMonths = [
     { key: '1', value: '01' },
@@ -31,17 +31,38 @@ export const calendarYear = [
     { key: '12', value: '2034' },
 ]
 
-export const incomeType = [
-    { icon: faUtensils, text: "Food"},
-    { icon: faTv, text: "Appliance"},
-    { icon: faBagShopping, text: "Daily Expenses"},
-    { icon: faHouseUser, text: "Rent"},
-    { icon: faCarSide, text: "Transportation"},
-    { icon: faLightbulb, text: "Electricity"},
-    { icon: faMobile, text: "Phone Bill"},
-    { icon: faWater, text: "Water Bill"},
-    { icon: faTrash, text: "Trash"},
-    { icon: faGlobe, text: "Internet"},
-    { icon: faBook, text: "Book"},
-    { icon: faPen, text: "Others"},
+export const expenseType = [
+    { icon: faUtensils, text: "Food",iconName:"faUtensils"},
+    { icon: faTv, text: "Appliance",iconName:"faTv"},
+    { icon: faBagShopping, text: "Daily Expenses",iconName:"faBagShopping"},
+    { icon: faHouseUser, text: "Rent",iconName:"faHouseUser"},
+    { icon: faCarSide, text: "Transportation",iconName:"faCarSide"},
+    { icon: faLightbulb, text: "Electricity",iconName:"faLightbulb"},
+    { icon: faMobile, text: "Phone Bill",iconName:"faMobile"},
+    { icon: faWater, text: "Water Bill",iconName:"faWater"},
+    { icon: faTrash, text: "Trash",iconName:"faTrash"},
+    { icon: faGlobe, text: "Internet",iconName:"faGlobe"},
+    { icon: faBook, text: "Book",iconName:"faBook"},
+    { icon: faPen, text: "Others",iconName:"faPen"},
 ]
+
+export const incomeType = [
+    { icon: faMoneyBill, text: "Salary",iconName:"faMoneyBill"},
+    { icon: faMoneyCheckDollar, text: "Stock",iconName:"faMoneyCheckDollar"},
+    { icon: faMap, text: "Interest",iconName:"faMap"},
+    { icon: faHouse, text: "Rental",iconName:"faHouse"},
+    { icon: faMoneyBills, text: "Investment",iconName:"faMoneyBills"},
+    { icon: faGift, text: "Gift",iconName:"faGift"},
+    { icon: faFilterCircleDollar, text: "Options",iconName:"faFilterCircleDollar"},
+    { icon: faCoins, text: "Tips",iconName:"faCoins"},
+    { icon: faPen, text: "Others",iconName:"faPen"},
+]
+
+export const iconMap = new Map();
+expenseType.forEach(item=>{
+    iconMap.set(item.iconName,item.icon);
+});
+incomeType.forEach(item=>{
+    iconMap.set(item.iconName,item.icon);
+});
+

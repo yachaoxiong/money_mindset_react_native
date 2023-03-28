@@ -1,18 +1,23 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles/appNewFlowTypeItemStyle';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 
 export default AppNewFlowTypeItem = (props) => {
+
+    const {iconName, text, setSelectedType, selectedType, setIconName} = props;
+
+    const setSelectedTypeAndIconName = () => {
+        setSelectedType(text);
+        setIconName(iconName);
+    }
+
     return (
-        <TouchableOpacity
-        // onPress={() => submit()}
-        >
+        <TouchableOpacity onPress={()=>setSelectedTypeAndIconName()}>
             <View style={styles.tab}>
-                <View style={styles.menuItem}>
-                    <FontAwesomeIcon {...props} />
+                <View style={text === selectedType ? styles.menuItem_selected : styles.menuItem_unSelected}>
+                    <FontAwesomeIcon {...props} color={text === selectedType ? 'red' : 'black'}/>
                 </View>
-                <Text style={styles.menuText}>{props.text}</Text>
+                <Text style={styles.menuText}>{text}</Text>
             </View>
         </TouchableOpacity>
     )

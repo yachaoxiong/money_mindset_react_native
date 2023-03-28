@@ -22,7 +22,8 @@ export default styles = StyleSheet.create({
         marginTop: 55
     },
     topMenuItemContainer:{
-        marginTop: 55
+        marginTop: 55,
+        marginBottom:400
     },
     activityContainer:{
         display:'flex',
@@ -55,7 +56,7 @@ export default styles = StyleSheet.create({
         color:"#939393",
         fontSize:12
     },
-    horizonalLine:{
+    horizontalLine:{
         ...AppStyles.horizontalLine
     },
     transactionContainer:{

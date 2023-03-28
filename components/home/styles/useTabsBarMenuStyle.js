@@ -7,15 +7,15 @@ export default styles = StyleSheet.create({
     backgroundColor: '#FFF',
     height: 70, // fixed height
     marginBottom: -40,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     paddingVertical:5,
-    marginHorizontal: 28,
+    marginHorizontal: 60,
     borderRadius: 7,
     shadowOffset: { width: -2, height: 4 },
     shadowColor: '#171717',
     shadowOpacity: 0.2,
     shadowRadius: 5,
-    zIndex:99
+    zIndex:2,
   },
   itemContainer: {
     flex: 1,

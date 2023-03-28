@@ -9,14 +9,14 @@ export const homeTabs = [
     image: require('../assets/budget.png'),
     link: 'BudgetScreen',
   },
-  {
-    name: 'Assets',
-    image: require('../assets/assets.png'),
-    link: 'Assets',
-  },
-  {
-    name: 'More',
-    image: require('../assets/more.png'),
-    link: 'More',
-  },
+  // {
+  //   name: 'Assets',
+  //   image: require('../assets/assets.png'),
+  //   link: 'Assets',
+  // },
+  // {
+  //   name: 'More',
+  //   image: require('../assets/more.png'),
+  //   link: 'More',
+  // },
 ];

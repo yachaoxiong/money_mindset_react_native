@@ -1,29 +1,22 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { SelectList } from 'react-native-dropdown-select-list';
-import { calendarYear } from '../../utils/static';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import { faCircleLeft } from '@fortawesome/free-solid-svg-icons';
-import AppTextAmount from './AppTextAmount';
 import styles from './styles/appAddNewFlowStyle';
 
-export default AppAddNewFlowHeader = () => {
+export default AppAddNewFlowHeader = (props) => {
 
-    const navigation = useNavigation()
-    const returnToHomeScreen = () => {
-        navigation.navigate('BottomNavigationTabs', {
-            screen: 'HomeScreen'
-        })
-    }
+    const {setCurrentSection, currentSection} = props;
 
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerText}>Expense</Text>
-                <Text style={styles.headerText}>Income</Text>
-            </View>
+                <TouchableOpacity onPress={()=>setCurrentSection("Expense")} style={currentSection==="Expense"?styles.selected : styles.unselected}>
+                    <Text style={currentSection==="Expense"?styles.selectedText : styles.unselectedText}>Expense</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress = {()=>setCurrentSection("Income")} style={currentSection==="Income"?styles.selected : styles.unselected}>
+                    <Text style={currentSection==="Income"?styles.selectedText : styles.unselectedText}>Income</Text>
+                </TouchableOpacity>
+            </View>    
         </View>
     )
 }
