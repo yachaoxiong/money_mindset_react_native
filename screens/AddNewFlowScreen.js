@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { expenseType, incomeType } from '../utils/static';
 import { addNewBill } from '../services/billService';
-
+import moment from 'moment';
 import styles from './styles/useNewFlow';
 
 export default AddNewFlowScreen = () => {
@@ -25,6 +25,8 @@ export default AddNewFlowScreen = () => {
 
     const navigation = useNavigation();
 
+    console.log("today date is"+date);
+
     const submit = () => {
         if(!checkAmount(amount)) return;
         try {
@@ -33,7 +35,8 @@ export default AddNewFlowScreen = () => {
                 amount: amount,
                 billType: selectedType,
                 iconName: iconName,
-                billDate: date
+                billDate: handleDate(date),
+                weekNumber:moment(handleDate(date)).week()
             }).then(res => {
                 console.log(res);
                 setIsRefreshing(pre=>!pre)
@@ -89,7 +92,7 @@ export default AddNewFlowScreen = () => {
                                     onPress={() => navigateToDatePickScreen()}>
                                     <FontAwesomeIcon icon={faCalendar} size={30} color='red' />
                                 </TouchableOpacity>
-                                <TextInput style={styles.textInput_date} editable={false}>{date}</TextInput>
+                                <TextInput style={styles.textInput_date} editable={false}>{handleDate(date)}</TextInput>
                             </View>
                         </View>
                         <AppCustomizedInput
