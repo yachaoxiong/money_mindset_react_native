@@ -21,7 +21,7 @@ export default AppLeaderboardDetailsCard = (props) => {
                 </View>
                 <View style={[styles.progressBar,{width:screenWidth*0.75*rate}]}></View>
             </View>
-            <View style={styles.horizontalLine}></View>
+            
         </View>
     )
 }

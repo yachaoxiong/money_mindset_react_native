@@ -43,7 +43,9 @@ export default AnalysisScreen = () => {
                         <Text style={styles.leaderboardHeader_text}>{currentSection} Leaderboard</Text>
                         <View style={styles.leaderboardDetailsContainer}>
                             <AppLeaderboardDetailsCard icon = {faGift} type="Gift" rate={1}/>
+                            <View style={styles.horizontalLine}></View>
                             <AppLeaderboardDetailsCard icon = {faBank} type="Bank" rate={0.5}/>
+                            <View style={styles.horizontalLine}></View>
                             <AppLeaderboardDetailsCard icon = {faCar} type="Car" rate={0.25}/>
                         </View>
                     </View>

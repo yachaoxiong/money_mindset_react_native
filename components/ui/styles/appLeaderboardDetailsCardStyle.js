@@ -1,16 +1,15 @@
 import { StyleSheet } from 'react-native';
-// import {Appstyles} from '../../../common/styles';
 
 export default styles = StyleSheet.create({
     container: {
         display: 'flex',
         flexDirection: 'row',
-        marginTop:15
+        marginTop: 20
     },
     icon: {},
-    progressContainer:{
-        marginLeft:10,
-        marginTop:10
+    progressContainer: {
+        marginLeft: 10,
+        marginTop: 10
     },
     headerInfo: {
         width: '60%',
@@ -19,12 +18,15 @@ export default styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     progressBar: {
-        height:7,
-        backgroundColor:'#DA0452',
-        borderRadius:7
+        height: 7,
+        backgroundColor: '#DA0452',
+        borderRadius: 7
     },
-    // horizontalLine:{
-    //     ...AppStyles.horizontalLine,
-    //     marginTop:20
-    // },
+    horizontalLine: {
+        width: '100%',
+        height: .8,
+        marginTop: 20,
+        borderWidth: .8,
+        borderColor: '#F0F3F4',
+    }
 })
