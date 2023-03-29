@@ -1,6 +1,6 @@
 import { faUtensils, faTv, faBagShopping, faCarSide, faHouseUser, faMobile, faLightbulb, faWater, faTrash, faGlobe, faPen, faBook } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyBill,faMoneyCheckDollar, faMap, faHouse, faMoneyBills, faGift, faFilterCircleDollar, faCoins } from '@fortawesome/free-solid-svg-icons';
-
+import { faCreditCard,faCreditCardAlt, faEject } from '@fortawesome/free-solid-svg-icons';
 export const calendarMonths = [
     { key: '1', value: '01' },
     { key: '2', value: '02' },
@@ -59,6 +59,13 @@ export const incomeType = [
 ]
 
 export const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+export const newAssetsCategory = [
+    { icon: faMoneyBill, text: "Cash",iconName:"faMoneyBill"},
+    { icon: faCreditCard, text: "Credit Card",iconName:"faCreditCard"},
+    { icon: faCreditCardAlt, text: "Debit Card",iconName:"faCreditCardAlt"},
+    { icon: faEject, text: "Debt",iconName:"faEject"},
+]
 
 export const iconMap = new Map();
 expenseType.forEach(item=>{

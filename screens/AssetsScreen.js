@@ -3,6 +3,7 @@ import { View, SafeAreaView, ScrollView, Text, Image, TouchableOpacity } from 'r
 import { Dimensions } from 'react-native';
 import AppAssetsHeader from '../components/ui/AppAssetsHeader';
 import AppAssetsDetailsCard from '../components/ui/AppAssetsDetailsCard';
+import AppAddNewAssetsModel from '../components/ui/AppAddNewAssetsModel';
 import styles from './styles/useAssetsStyle'
 
 export default AssetsScreen = () => {
@@ -10,14 +11,18 @@ export default AssetsScreen = () => {
     return (
         <View style={styles.container}>
             <SafeAreaView>
+                 {/* Header */}
                 <AppAssetsHeader />
-                <ScrollView contentContainerStyle={styles.content}>
+                {/* Assets Details */}
+                {/* <ScrollView contentContainerStyle={styles.content}>
                     <AppAssetsDetailsCard />
-                </ScrollView>
-                <Text>sdfsdfsf</Text>
+                </ScrollView> */}
+                {/* Add New button */}
                 <TouchableOpacity style={[styles.addNewButton, { marginTop: screenHeight * 0.8 }]}>
                     <Text style={{ fontSize: 15, fontWeight: 'bold' }}>+  Add New</Text>
                 </TouchableOpacity>
+                {/* Add new assets model */}
+                <AppAddNewAssetsModel/>
             </SafeAreaView>
         </View>
     )
