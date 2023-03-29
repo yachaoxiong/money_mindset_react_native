@@ -50,7 +50,8 @@ export default styles = StyleSheet.create({
     totalAndDebtAmount_text: {
         color: 'white',
         fontSize: 13,
-        fontWeight:'bold'
+        fontWeight:'bold',
+        marginTop:5
     },
     debtContainer: {
         alignItems: 'center',

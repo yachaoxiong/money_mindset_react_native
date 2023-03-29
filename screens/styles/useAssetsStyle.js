@@ -8,6 +8,21 @@ export default styles = StyleSheet.create({
     },
     content:{
         height:'100%',
-        backgroundColor:'white'
+        backgroundColor:'white',
+        alignItems: 'center',
     },
+    addNewButton:{
+        position:'absolute',
+        width:'90%',
+        backgroundColor:'#F3F3F3',
+        padding:10,
+        marginLeft:'5%',
+        justifyContent:'center',
+        alignItems:'center',
+        borderRadius:5
+    },
+    submitButtonContainer:{
+        justifyContent:'center',
+        alignItems:'center'
+    }
 })
