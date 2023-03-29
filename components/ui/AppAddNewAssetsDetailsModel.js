@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import AppNewAssetsTextInputField from './AppNewAssetsTextInputField';
 import { cashAndDebtTextFieldHeader, debitAndCreditCardTextFieldHeader } from '../../utils/static';
-import styles from './styles/AppAddNewAssetsDetailsModel';
+import styles from './styles/appAddNewAssetsDetailsModel';
 
 export default AppAddNewAssetsDetailsModel = (props) => {
     const {tab, setTab} = props;
@@ -21,9 +21,9 @@ export default AppAddNewAssetsDetailsModel = (props) => {
             </View>
             <View style={styles.newAssetsCategory}>
                 {(tab==='Cash' || tab==='Debt')?cashAndDebtTextFieldHeader.map((item,index)=>{
-                    return <AppNewAssetsTextInputField tab={tab} header={item}/>
+                    return <AppNewAssetsTextInputField tab={tab} header={item} key={index}/>
                 }):debitAndCreditCardTextFieldHeader.map((item,index)=>{
-                    return <AppNewAssetsTextInputField tab={tab} header={item}/>
+                    return <AppNewAssetsTextInputField tab={tab} header={item} key={index}/>
                 })}
             </View>
             <TouchableOpacity style={styles.submitButton}>

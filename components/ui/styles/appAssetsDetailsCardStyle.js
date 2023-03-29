@@ -22,5 +22,8 @@ export default styles = StyleSheet.create({
     },
     assetsDetailsContainer:{
        
+    },
+    text:{
+        fontWeight:'bold'
     }
 })

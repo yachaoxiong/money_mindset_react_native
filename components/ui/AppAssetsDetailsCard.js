@@ -11,8 +11,8 @@ export default AppAssetsDetailsCard = () => {
         <View style={[styles.container,{width:screenWidth*0.8}]}>
             {/* category header */}
             <View style={styles.header}>
-                <Text>Cash</Text>
-                <Text>$5875.00</Text>
+                <Text style={styles.text}>Cash</Text>
+                <Text style={styles.text}>$5875.00</Text>
             </View>
             {/* horizontal dividing line */}
             <View style={styles.horizonalLine}></View>
