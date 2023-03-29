@@ -11,6 +11,11 @@ export default styles = StyleSheet.create({
         backgroundColor:'white',
         alignItems: 'center',
     },
+    content_alt:{
+        height:'100%',
+        backgroundColor:'#E5E7E9',
+        alignItems: 'center',
+    },
     addNewButton:{
         position:'absolute',
         width:'90%',

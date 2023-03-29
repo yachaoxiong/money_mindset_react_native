@@ -6,7 +6,7 @@ export default styles = StyleSheet.create({
         position: 'absolute',
         backgroundColor: 'white',
         borderRadius: 5,
-        marginTop: 230,
+        marginTop: 240,
     },
     headerContainer: {
         display: 'flex',

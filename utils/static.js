@@ -67,6 +67,9 @@ export const newAssetsCategory = [
     { icon: faEject, text: "Debt",iconName:"faEject"},
 ]
 
+export const cashAndDebtTextFieldHeader = ['Name','Note','Amount'];
+export const debitAndCreditCardTextFieldHeader = ['Name','Bank','Last 4 digits','Note','Amount'];
+
 export const iconMap = new Map();
 expenseType.forEach(item=>{
     iconMap.set(item.iconName,item.icon);

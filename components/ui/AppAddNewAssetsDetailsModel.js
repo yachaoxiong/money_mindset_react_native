@@ -3,11 +3,11 @@ import {View,Text,TouchableOpacity} from 'react-native';
 import { Dimensions } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import AppNewAssetsCategoryItem from './AppNewAsssetsCategoryItem';
+import AppNewAssetsTextInputField from './AppNewAssetsTextInputField';
 import { newAssetsCategory } from '../../utils/static';
 import styles from './styles/appAddNewAssetsModelStyle';
 
-export default AppAddNewAssetsModel = (props) => {
+export default AppAddNewAssetsDetailsModel = (props) => {
     const {setOpenAddNewModel} = props;
     const screenWidth = Dimensions.get('window').width;
     return (
@@ -20,9 +20,7 @@ export default AppAddNewAssetsModel = (props) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.newAssetsCategory}>
-                {newAssetsCategory.map((item,index)=>{
-                    return  <AppNewAssetsCategoryItem item={item} key={index}/>
-                })}
+                <AppNewAssetsTextInputField/>
             </View>
         </View>
     )
