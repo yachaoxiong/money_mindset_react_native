@@ -6,6 +6,7 @@ export default styles = StyleSheet.create({
     },
     textInput:{
         backgroundColor:'#F6F6F6',
-        height:30
+        height:30,
+        textAlign:'right'
     }
 })

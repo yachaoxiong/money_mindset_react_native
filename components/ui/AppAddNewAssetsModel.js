@@ -8,7 +8,7 @@ import { newAssetsCategory } from '../../utils/static';
 import styles from './styles/appAddNewAssetsModelStyle';
 
 export default AppAddNewAssetsModel = (props) => {
-    const {setOpenAddNewModel} = props;
+    const {setOpenAddNewModel,setTab} = props;
     const screenWidth = Dimensions.get('window').width;
     return (
         <View style={[styles.container,{width:screenWidth*0.8,marginLeft:screenWidth*0.1}]}>
@@ -21,7 +21,7 @@ export default AppAddNewAssetsModel = (props) => {
             </View>
             <View style={styles.newAssetsCategory}>
                 {newAssetsCategory.map((item,index)=>{
-                    return  <AppNewAssetsCategoryItem item={item} key={index}/>
+                    return  <AppNewAssetsCategoryItem item={item} key={index} setTab={setTab} setOpenAddNewModel={setOpenAddNewModel}/>
                 })}
             </View>
         </View>

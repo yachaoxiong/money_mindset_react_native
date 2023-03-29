@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, SafeAreaView, ScrollView, Text, Image, TouchableOpacity } from 'react-native';
 import { Dimensions } from 'react-native';
 import AppAssetsHeader from '../components/ui/AppAssetsHeader';
@@ -8,15 +8,18 @@ import AppAddNewAssetsDetailsModel from '../components/ui/AppAddNewAssetsDetails
 import styles from './styles/useAssetsStyle'
 
 export default AssetsScreen = () => {
-    const [openAddNewModel, setOpenAddNewModel] = React.useState(false)
+    const [openAddNewModel, setOpenAddNewModel] = useState(false);
+    const [tab,setTab] = useState('');
     const screenHeight = Dimensions.get('window').height;
+
+    console.log("tab is"+tab);
     return (
         <View style={styles.container}>
             <SafeAreaView>
                  {/* Header */}
                 <AppAssetsHeader />
                 {/* Assets Details */}
-                <ScrollView contentContainerStyle={openAddNewModel?styles.content_alt:styles.content}>
+                <ScrollView contentContainerStyle={openAddNewModel || tab !== '' ?styles.content_alt:styles.content}>
                     <AppAssetsDetailsCard />
                 </ScrollView>
                 {/* Add New button */}
@@ -26,8 +29,8 @@ export default AssetsScreen = () => {
                     <Text style={{ fontSize: 15, fontWeight: 'bold' }}>+  Add New</Text>
                 </TouchableOpacity>
                 {/* Add new assets model */}
-                {openAddNewModel?<AppAddNewAssetsModel setOpenAddNewModel={setOpenAddNewModel}/>:null}
-                {/* <AppAddNewAssetsDetailsModel/> */}
+                {openAddNewModel?<AppAddNewAssetsModel setOpenAddNewModel={setOpenAddNewModel} setTab={setTab}/>:null}
+                {tab !==''?<AppAddNewAssetsDetailsModel tab={tab} setTab={setTab}/>:null}
             </SafeAreaView>
         </View>
     )
