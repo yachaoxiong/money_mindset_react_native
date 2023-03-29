@@ -7,8 +7,8 @@ export default AppNewAssetsTextInputField = (props) => {
     console.log("header is:"+header);
     return (
         <View style={styles.container}>
-            <Text>{header}</Text>
-            <TextInput style={styles.textInput} value={header==='Name'?tab:''}></TextInput>
+            <Text style={{fontWeight:'bold',fontSize:13}}>{header}</Text>
+            <TextInput editable={header==='Name'?false:true} style={styles.textInput} value={header==='Name'?tab:''}></TextInput>
         </View>
     )
 }
