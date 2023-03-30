@@ -22,15 +22,28 @@ export default AddNewFlowScreen = () => {
     const [notes, setNotes] = useState('');
     const [selectedType, setSelectedType] = useState('');
     const [iconName, setIconName] = useState('');
+    const canSubmit = typeof +amount === 'number' && amount.length > 0 && selectedType.length > 0;
+    const [errorMessage, setErrorMessage] = useState('');
 
     const navigation = useNavigation();
 
-    console.log("today date is"+date);
 
     const submit = () => {
-        if(!checkAmount(amount)) return;
-        try {
-            addNewBill({
+        if (!selectedType) {
+            setErrorMessage('Please select a type');
+            return;
+        }
+        if (isNaN(Number(amount))) {
+            setErrorMessage('Please enter a valid amount');
+            return;
+        }
+
+        if (!canSubmit) {
+            setErrorMessage('Please fill in all the fields');
+            return;
+        }
+
+         addNewBill({
                 name: notes,
                 amount: amount,
                 billType: currentSection,
@@ -40,22 +53,28 @@ export default AddNewFlowScreen = () => {
                 monthNumber:moment(handleDate(date)).month(),
                 yearNumber:moment(handleDate(date)).year(),
             }).then(res => {
-                console.log(res);
+                ClearForm();
                 setIsRefreshing(pre=>!pre)
+            }).catch(err => {
+                console.log("add new bill error", err);
             })
-        } catch (error) {
-            console.log(error.message);
-        }
+    }
+ 
+    const ClearForm = () => {
+        setAmount('');
+        setDate(getTodayDate());
+        setNotes('');
+        setSelectedType('Expense');
+        setIconName('');
+        setErrorMessage('');
     }
 
-    const checkAmount = (amount) => {
-        return true;
-    }
 
     const navigateToDatePickScreen = () => {
         navigation.navigate('DatePickerScreen', { setDate: setDate });
     }
-
+ 
+    
     const handleDate = (date) => {
         return date.substr(1, 10);
     }
@@ -85,6 +104,7 @@ export default AddNewFlowScreen = () => {
                         <View style={styles.amountAndDateInputField}>
                             <AppCustomizedInput
                                 placeholder="Amount"
+                                value={amount}
                                 onChangeText={text => setAmount(text)}
                                 width={160}
                                 height={40}
@@ -106,6 +126,7 @@ export default AddNewFlowScreen = () => {
                             multiline={true}
                             marginLeft="5%"
                         />
+                        {errorMessage && <Text style={styles.errorMessage}>{errorMessage}</Text>}
                         <TouchableOpacity
                             style={styles.touchableOpacity_submit}
                             onPress={() => submit()}

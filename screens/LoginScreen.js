@@ -19,10 +19,9 @@ export default function LoginScreen(props) {
         if (username === '' || password === '') {
           setMessage('Please fill in all fields');
         } else {
-          console.log("username", username)
+    
           login(username, password)
             .then(res => {
-              console.log("res",res)
               if (res.user) {
                 updateUser(res.user);
                 props.navigation.navigate('BottomNavigationTabs', { screen: 'Home' });

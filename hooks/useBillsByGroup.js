@@ -1,23 +1,23 @@
 import React,{ useEffect, useState } from 'react'
-import { getAllBills, updateBill } from '../services/billService'
+import { getAllBillsByGroup } from '../services/billService'
 import { StoreContext } from '../store/store'
 
-export default function useBills(period) {
+export default function useBills() {
   const { isRefreshing } = React.useContext(StoreContext)
   const [bills, setBills] = useState([])
 
   useEffect(() => {
-    getAllBills(period).then((response) => {
+    getAllBillsByGroup().then((response) => {
         setBills(response.data)
     }).catch((error) => {
       console.log(error)
     }
     )
-  }, [isRefreshing, period])
+  }, [isRefreshing])
 
  // update the bill state
   const updateBills = () => {
-    getAllBills(period).then((response) => {
+    getAllBillsByGroup().then((response) => {
       setBills(response.data)
     }).catch((error) => {
       console.log(error)

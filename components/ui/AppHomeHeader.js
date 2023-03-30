@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { SelectList } from 'react-native-dropdown-select-list'
 import {calendarMonths} from '../../utils/static'
@@ -12,7 +12,25 @@ import styles from './styles/appHomeHeaderStyle';
 export default AppHomeHeader = (props) => {
 
     const [selectedListItem, setSelectedListItem] = useState("");
+    const [totalExpense, setTotalExpense] = useState(0);
+    const [totalIncome, setTotalIncome] = useState(0);
 
+    useEffect(() => {
+        let income = 0;
+        let expense = 0;
+        props.bills.forEach(item => {
+            item.billItems.forEach(item => {
+                if (item.billType === "Income") {
+                    income += Number(item.amount);
+                } else {
+                    expense += Number(item.amount);
+                }
+            })
+        })
+        setTotalExpense(expense);
+        setTotalIncome(income);
+    }, [props.bills])
+    console.log("totalExpense", totalExpense)
     return (
         <View style={styles.container}>
             {/* logo */}
@@ -53,11 +71,11 @@ export default AppHomeHeader = (props) => {
                 <View style={styles.rightContainer}>
                     <View style={styles.incomeContainer}>
                         <Text style={styles.label}>Income</Text>
-                        <AppTextAmount amount={12.00}  />
+                        <AppTextAmount amount={totalExpense}  />
                     </View>
                     <View style={styles.expenseContainer}>
                         <Text style={styles.label}>Expense</Text>
-                        <AppTextAmount amount={122222.00} />
+                        <AppTextAmount amount={totalIncome} />
                     </View>
                 </View>
             </View>

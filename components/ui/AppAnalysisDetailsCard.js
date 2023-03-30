@@ -21,9 +21,9 @@ export default AppAnalysisDetailsCard = (props) => {
         let totalAmount = 0;
         let averageAmount = 0;
         item.billItems.forEach(billItem => {
-            if(currentSection === 'Expense' && billItem.name === 'Expense'){
+            if(currentSection === 'Expense' && billItem.billType === 'Expense'){
                 totalAmount+=Number(billItem.amount);
-            }else if(currentSection === 'Income' && billItem.name === 'Income'){
+            }else if(currentSection === 'Income' && billItem.billType === 'Income'){
                 totalAmount+=Number(billItem.amount);
             }
         });

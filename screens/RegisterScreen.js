@@ -15,7 +15,6 @@ export default RegisterScreen = (props) => {
     const navigation = useNavigation();
 
     const handleRegister = () => {
-        console.log("submit")
         if (username === '' || password === ''|| email === ''|| confirmedPassword === '') {
           setMessage('Please fill in all fields');
           return
@@ -26,8 +25,6 @@ export default RegisterScreen = (props) => {
         }
         register(username, password, email)
             .then(res => {
-                console.log("res", res)
-                console.log("success")
             if (res === 'success') {
               props.navigation.navigate('Login');
             } 
