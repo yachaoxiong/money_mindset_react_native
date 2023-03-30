@@ -14,7 +14,7 @@ export default styles = StyleSheet.create({
     },
     header_text: {
         color: 'white',
-        fontSize: 17,
+        fontSize: 20,
         fontWeight: 'bold',
     },
     balanceContainer: {
