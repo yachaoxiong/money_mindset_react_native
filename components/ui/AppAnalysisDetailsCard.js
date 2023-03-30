@@ -45,7 +45,7 @@ export default AppAnalysisDetailsCard = (props) => {
             <Text style={styles.amount_text}>${totalAmount}</Text>
             <Text style={styles.subHeader_text}>Average</Text>
             <Text style={styles.amount_text}>
-                {currentPeriod==='WEEK'?averageAmount+"/day":currentPeriod==='MONTH'?averageAmount+"/month":averageAmount+"/year"}
+                {currentPeriod==='WEEK'?averageAmount+"/day":currentPeriod==='MONTH'?averageAmount+"/week":averageAmount+"/year"}
             </Text>
         </TouchableOpacity>
     )
