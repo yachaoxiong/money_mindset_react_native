@@ -17,25 +17,37 @@ export default AppAnalysisDetailsCard = (props) => {
         }
     }
 
-    const calculateTotalAmount = () => {
+    const calculateTotalAmountAndAverage = () => {
         let totalAmount = 0;
+        let averageAmount = 0;
         item.billItems.forEach(billItem => {
             if(currentSection === 'Expense' && billItem.name === 'Expense'){
                 totalAmount+=Number(billItem.amount);
             }else if(currentSection === 'Income' && billItem.name === 'Income'){
                 totalAmount+=Number(billItem.amount);
             }
-        })
-        return totalAmount
+        });
+        if(currentPeriod === 'WEEK'){
+            averageAmount = totalAmount/7;
+        }else if(currentPeriod === 'MONTH'){
+            const numDays = moment(`${Number(item.billItems[0].yearNumber)}-${Number(item.billItems[0].monthNumber)+1}-01`, 'YYYY-MM-DD').daysInMonth();
+            averageAmount = totalAmount/numDays;
+        }else{
+            const numDays = moment(`${Number(item.billItems[0].yearNumber)}-12-31`, 'YYYY-MM-DD').dayOfYear();
+            averageAmount = totalAmount/numDays;
+            console.log("item.yearNumber is:"+Number(item.billItems[0].yearNumber));
+        }
+        return [totalAmount,averageAmount];
     }
+    const [totalAmount,averageAmount] = calculateTotalAmountAndAverage();
 
     return (
         <TouchableOpacity style={styles.container}>
             <Text style={styles.periodHeader_text}>{formatHeaderDate()}</Text>
             <Text style={styles.subHeader_text}>Total</Text>
-            <Text style={styles.amount_text}>{calculateTotalAmount()}</Text>
+            <Text style={styles.amount_text}>${totalAmount.toFixed(2)}</Text>
             <Text style={styles.subHeader_text}>Average</Text>
-            <Text style={styles.amount_text}>0.00</Text>
+            <Text style={styles.amount_text}>${averageAmount.toFixed(2)}/day</Text>
         </TouchableOpacity>
     )
 }
