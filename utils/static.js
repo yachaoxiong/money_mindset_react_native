@@ -75,10 +75,10 @@ export const debitAndCreditCardTextFieldHeader = ['Name','Bank','Last 4 digits',
 
 export const iconMap = new Map();
 expenseType.forEach(item=>{
-    iconMap.set(item.text.toLocaleLowerCase(), item.icon);
+    iconMap.set(item.text, item.icon);
 });
 incomeType.forEach(item=>{
-    iconMap.set(item.text.toLocaleLowerCase(), item.icon);
+    iconMap.set(item.text, item.icon);
 });
 
 

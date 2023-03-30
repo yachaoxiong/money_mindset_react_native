@@ -31,10 +31,10 @@ export default AddNewFlowScreen = () => {
         if(!checkAmount(amount)) return;
         try {
             addNewBill({
-                name: currentSection,
+                name: notes,
                 amount: amount,
-                billType: selectedType,
-                iconName: iconName,
+                billType: currentSection,
+                iconName: selectedType,
                 billDate: handleDate(date),
                 weekNumber:moment(handleDate(date)).week(),
                 monthNumber:moment(handleDate(date)).month(),

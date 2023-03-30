@@ -74,7 +74,7 @@ export default HomeScreen = (props) => {
                             return <View key={index} style={styles.transactionContainer}>
                                 <View style={styles.transactionHeaderContainer}>
                                     <View style={styles.date}>
-                                        <Text style={styles.dateText}>{item.billType}</Text>
+                                        <Text style={styles.dateText}>{item._id}</Text>
                                     </View>
                                     <View style={styles.incomeAndExpense}>
                                         <Text style={styles.incomeText}>Income: {calculateIncome(item)[0]}    Expense: {calculateIncome(item)[1]}</Text>
