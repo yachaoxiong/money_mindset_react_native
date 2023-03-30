@@ -22,7 +22,7 @@ export default styles = StyleSheet.create({
         marginTop: 55
     },
     topMenuItemContainer:{
-        marginBottom:400
+        marginBottom:336
     },
     activityContainer:{
         display:'flex',

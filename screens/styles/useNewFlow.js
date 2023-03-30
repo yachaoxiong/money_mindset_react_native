@@ -68,5 +68,10 @@ export default styles = StyleSheet.create({
         width:140,
         height:40,
         borderRadius:5
+    },
+    errorMessage: {
+        color: 'red',
+        marginLeft: '5%',
+        marginTop: 10
     }
 })
