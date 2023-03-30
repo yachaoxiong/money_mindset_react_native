@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import AppNewAssetsTextInputField from './AppNewAssetsTextInputField';
 import { cashAndDebtTextFieldHeader, debitAndCreditCardTextFieldHeader } from '../../utils/static';
-import styles from './styles/appAddNewAssetsDetailsModel';
+import styles from './styles/AppAddNewAssetsDetailsModel';
 
 export default AppAddNewAssetsDetailsModel = (props) => {
     const {tab, setTab} = props;

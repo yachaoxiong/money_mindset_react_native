@@ -18,7 +18,7 @@ import useBills from '../hooks/useBill';
 export default AnalysisScreen = () => {
     const [currentSection, setCurrentSection] = useState('Expense');
     const [currentPeriod, setCurrentPeriod] = useState('WEEK');
-    const detailsData = useBills(currentPeriod.toLocaleLowerCase());
+    const { bills } = useBills(currentPeriod.toLocaleLowerCase());
 
     // console.log(detailsData);
 
@@ -35,7 +35,7 @@ export default AnalysisScreen = () => {
                     </View>
                     {/* Scroll View from period details */}
                     <ScrollView horizontal={true}>
-                        {detailsData.map((item,index)=>{
+                        {bills?.map((item,index)=>{
                              return <AppAnalysisDetailsCard key={index} item={item} currentPeriod={currentPeriod} currentSection={currentSection}/>
                         })}
                     </ScrollView>

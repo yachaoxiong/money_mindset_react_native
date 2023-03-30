@@ -61,7 +61,7 @@ export default HomeScreen = (props) => {
         selectedBill && setName(selectedBill.name);
         selectedBill && setAmount(selectedBill.amount);
     }, [selectedBill])
-    console.log(bills)
+    console.log(bills[0]?.billItems[0])
     return (
         <View style={styles.container}>
             <SafeAreaView>
@@ -74,7 +74,7 @@ export default HomeScreen = (props) => {
                             return <View key={index} style={styles.transactionContainer}>
                                 <View style={styles.transactionHeaderContainer}>
                                     <View style={styles.date}>
-                                        <Text style={styles.dateText}>{item._id}</Text>
+                                        <Text style={styles.dateText}>{item.billType}</Text>
                                     </View>
                                     <View style={styles.incomeAndExpense}>
                                         <Text style={styles.incomeText}>Income: {calculateIncome(item)[0]}    Expense: {calculateIncome(item)[1]}</Text>
