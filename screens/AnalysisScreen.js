@@ -20,7 +20,6 @@ export default AnalysisScreen = () => {
     const [currentPeriod, setCurrentPeriod] = useState('WEEK');
     const { bills } = useBills(currentPeriod.toLocaleLowerCase());
 
-    // console.log(detailsData);
 
     return (
         <View style={styles.container}>

@@ -40,7 +40,7 @@ export default AddNewFlowScreen = () => {
                 monthNumber:moment(handleDate(date)).month(),
                 yearNumber:moment(handleDate(date)).year(),
             }).then(res => {
-                console.log(res);
+                console.log("add new bill success", res);
                 setIsRefreshing(pre=>!pre)
             })
         } catch (error) {

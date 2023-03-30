@@ -4,7 +4,7 @@ import AppHomeHeader from '../components/ui/AppHomeHeader';
 import AppTransactionDetails from '../components/ui/AppTransactionDetail';
 import { homeTabs } from '../data/home';
 import TabsBarMenu from '../components/home/TabsBarMenu';
-import useBills from '../hooks/useBill';
+import useBillsByGroup from '../hooks/useBillsByGroup';
 import styles from './styles/useHomeStyle';
 import Modal from "react-native-modal";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
@@ -15,7 +15,7 @@ import { updateBill, deleteBill } from '../services/billService';
 import { SwipeItem, SwipeButtonsContainer, SwipeProvider } from 'react-native-swipe-item';
 
 export default HomeScreen = (props) => {
-    const { bills, updateBills } = useBills('all');
+    const {bills, updateBills } = useBillsByGroup();
     const [isVisible, setIsVisible] = useState(false);
     const [selectedBill, setSelectedBill] = useState('');
     const [name, setName] = useState('');
@@ -37,7 +37,7 @@ export default HomeScreen = (props) => {
    
     const handleUpdateBill = async () => {
         selectedBill.name = name;
-        selectedBill.amount = amount;
+        selectedBill.amount = +amount;
         await updateBill(selectedBill);
         setIsVisible(false);
     }
@@ -46,7 +46,8 @@ export default HomeScreen = (props) => {
         await deleteBill(item._id);
         updateBills();
     }
-
+  
+    console.log("bills", bills)
 
     const leftButton = (item) => {
         return <SwipeButtonsContainer style={styles.swipeButtonsContainer}>
@@ -61,7 +62,7 @@ export default HomeScreen = (props) => {
         selectedBill && setName(selectedBill.name);
         selectedBill && setAmount(selectedBill.amount);
     }, [selectedBill])
-    console.log(bills[0]?.billItems[0])
+ 
     return (
         <View style={styles.container}>
             <SafeAreaView>

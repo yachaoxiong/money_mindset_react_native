@@ -8,7 +8,7 @@ import styles from './styles/appBudgetDetailsStyle';
 export default AppBudgetDetails = (props) => {
 
     const { balance, expense, budget, value, size, type } = props;
-    console.log("balance="+Number(balance));
+   
     
     return (
         <View style={ type?styles.container_type:styles.container}>
