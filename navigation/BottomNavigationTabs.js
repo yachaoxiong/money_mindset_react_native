@@ -46,7 +46,7 @@ export default BottomTabs = () => {
                 component={AddNewFlowScreen}
                 options={{
                     tabBarIcon: ({ focused }) => {
-                        const color = focused ? '#DA0452' : 'gray';
+                        const color = '#DA0452' 
                         return <AppTabItem icon={faCirclePlus} size={55} color={color} />;
                     },
                 }}
