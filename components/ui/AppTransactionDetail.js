@@ -17,7 +17,7 @@ export default function AppTransactionDetails(props) {
                 <FontAwesomeIcon icon={iconMap.get(iconName)} size={20} color="red" />
                 <View style={styles.activityNameContainer}>
                     <Text style={styles.activityName}>{iconName}</Text>
-                    <Text style={styles.activityNameSmall}>{name}</Text>
+                    {name && <Text style={styles.activityNameSmall}>{name}</Text>}
                 </View>
             </View>
             <View style={styles.costAndEditButton}>

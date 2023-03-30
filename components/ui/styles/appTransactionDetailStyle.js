@@ -44,6 +44,8 @@ export default styles = StyleSheet.create({
     activityNameContainer: {
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'center',
+        height: 30,
     },
 
 })
