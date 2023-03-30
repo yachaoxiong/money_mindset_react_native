@@ -26,12 +26,24 @@ export default styles = StyleSheet.create({
         justifyContent:'center'
     },
     activityName:{
-        marginLeft:20
+        marginLeft: 20,
+        fontSize: 15,
+        fontWeight:'bold'
+    },
+    activityNameSmall:{
+        marginLeft: 20,
+        fontSize: 10,
+        marginTop:5
     },
     costAndEditButton:{
         display: 'flex',
         flexDirection:'row',
         justifyContent:'center',
         alignItems:'center'
-    }
+    },
+    activityNameContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
+
 })

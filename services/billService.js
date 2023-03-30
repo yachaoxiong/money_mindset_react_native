@@ -88,7 +88,7 @@ export const addNewBill = async (bill) => {
 
 export const deleteBill = async (billID) => {
   const token = await getToken();
-  return fetch(baseUrl + `/api/patients/${billID}`, {
+  return fetch(baseUrl + `/api/bill/${billID}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application',

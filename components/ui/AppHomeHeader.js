@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { SelectList } from 'react-native-dropdown-select-list'
 import {calendarMonths} from '../../utils/static'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown,faMagnifyingGlass, faWallet } from '@fortawesome/free-solid-svg-icons'
 import TabsBarMenu from '../home/TabsBarMenu';
 import { homeTabs } from '../../data/home';
 import AppTextAmount from './AppTextAmount';
@@ -11,7 +11,7 @@ import styles from './styles/appHomeHeaderStyle';
 
 export default AppHomeHeader = (props) => {
 
-    const [selectedListItem, setSelectedListItem] = React.useState("");
+    const [selectedListItem, setSelectedListItem] = useState("");
 
     return (
         <View style={styles.container}>
@@ -20,6 +20,14 @@ export default AppHomeHeader = (props) => {
                 <Image
                     source={require('../../assets/moneymindsetlogo.jpg')}
                     style={styles.logo} />
+                <View style={styles.searchAndWallet}>
+                    <TouchableOpacity onPress={()=>props.navigation.navigate('SearchScreen')}>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} size={18} color="#FFF" />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>props.navigation.navigate('BudgetScreen')}>
+                        <FontAwesomeIcon icon={faWallet} size={18} color="#FFF" />
+                    </TouchableOpacity>
+                </View>
             </View>
             {/* left part */}
             <View style={styles.infoContainer}>
@@ -30,7 +38,7 @@ export default AppHomeHeader = (props) => {
                         data={calendarMonths}
                         search={false}
                         save="value"
-                        arrowicon={<FontAwesomeIcon icon={faCaretDown} size={15} color="#FFF" />}
+                        // arrowicon={<FontAwesomeIcon icon={faCaretDown} size={15} color="#FFF" />}
                         boxStyles={styles.boxStyle}
                         inputStyles={styles.inputStyle}
                         dropdownStyles={styles.dropdownStyle}

@@ -12,6 +12,7 @@ import BottomNavigationTabs from './navigation/BottomNavigationTabs'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import StoreContextProvider from './store/store';
 import { StoreContext } from './store/store';
+import SearchScreen from './screens/SearchScreen';
 
 const Stack = createNativeStackNavigator();
 const AuthStack = createStackNavigator();
@@ -69,6 +70,10 @@ export default function App() {
                 name="DatePickerScreen"
                 component={DatePickerScreen}
                 options={{ headerShown: true }} />
+              <Stack.Screen
+                name="SearchScreen"
+                component={SearchScreen}
+                options={{ headerShown: true}} />
             </Stack.Navigator>
           </NavigationContainer>
         )}

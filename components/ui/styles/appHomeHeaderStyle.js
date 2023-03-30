@@ -8,11 +8,14 @@ export default styles = StyleSheet.create({
         backgroundColor: '#DA0452',
     },
     logoContainer: {
-        // flex: 1,
-        alignItems: "center",
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingRight: 20,
+        paddingBottom: 20,
     },
     logo: {
-        aspectRatio: 1.4,
+        aspectRatio: 2.8,
         resizeMode: 'contain',
     },
     infoContainer: {
@@ -107,5 +110,11 @@ export default styles = StyleSheet.create({
     menuText:{
         fontSize:10,
         fontWeight:'bold'
+    },
+    searchAndWallet: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: 60,
     },
 })
