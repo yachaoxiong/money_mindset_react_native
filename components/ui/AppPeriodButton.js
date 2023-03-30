@@ -4,12 +4,12 @@ import styles from './styles/appPeriodButtonStyle';
 
 export default AppPeriodButton = (props) => {
 
-    const {title, currentTitle, setCurrentTitle} = props;
+    const {title, currentPeriod, setCurrentPeriod} = props;
 
     return (
-        <TouchableOpacity style={currentTitle == title?styles.touchableOpacity_selected : styles.touchableOpacity_unselected} 
-            onPress={()=>setCurrentTitle(title)}>
-            <Text style={ currentTitle == title?styles.text_selected : styles.text_unselected}>{title}</Text>
+        <TouchableOpacity style={currentPeriod === title?styles.touchableOpacity_selected : styles.touchableOpacity_unselected} 
+            onPress={()=>setCurrentPeriod(title)}>
+            <Text style={ currentPeriod == title?styles.text_selected : styles.text_unselected}>{title}</Text>
         </TouchableOpacity>
     )
 }

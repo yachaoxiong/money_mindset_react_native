@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { View, SafeAreaView, ScrollView, Text, Image, TouchableOpacity } from 'react-native';
+import { View, SafeAreaView, ScrollView, Text } from 'react-native';
 import AppAnalysisHeader from '../components/ui/AppAnalysisHeader';
 import AppPeriodButton from '../components/ui/AppPeriodButton';
 import AppAnalysisDetailsCard from '../components/ui/AppAnalysisDetailsCard';
 import AppLeaderboardDetailsCard from '../components/ui/AppLeaderboardDetailsCard';
+import { period } from '../utils/static';
 import styles from './styles/useAnalysis';
 
 
@@ -12,11 +13,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faGift } from '@fortawesome/free-solid-svg-icons';
 import { faCar } from '@fortawesome/free-solid-svg-icons';
 import { faBank } from '@fortawesome/free-solid-svg-icons';
+import useBills from '../hooks/useBill';
 
 export default AnalysisScreen = () => {
     const [currentSection, setCurrentSection] = useState('Expense');
-    const [currentTitle, setCurrentTitle] = useState('WEEK');
-    const buttonTitle = ['WEEK','MONTH','YEAR'];
+    const [currentPeriod, setCurrentPeriod] = useState('WEEK');
+    const detailsData = useBills(currentPeriod.toLocaleLowerCase());
+
+    // console.log(detailsData);
+
     return (
         <View style={styles.container}>
             <SafeAreaView>
@@ -24,17 +29,15 @@ export default AnalysisScreen = () => {
                 {/* ScrollView for the page */}
                 <ScrollView style={styles.content}>
                     <View style={styles.periodButtonContainer}>
-                        {
-                            buttonTitle.map((title,index)=>{
-                                return <AppPeriodButton key={index} title={title} currentTitle={currentTitle} setCurrentTitle = {setCurrentTitle}/>
-                            })
-                        }
+                        {period.map((title,index)=>{
+                                return <AppPeriodButton key={index} title={title} currentPeriod={currentPeriod} setCurrentPeriod = {setCurrentPeriod}/>
+                        })}
                     </View>
                     {/* Scroll View from period details */}
                     <ScrollView horizontal={true}>
-                        <AppAnalysisDetailsCard/>
-                        <AppAnalysisDetailsCard/>
-                        <AppAnalysisDetailsCard/>
+                        {detailsData.map((item,index)=>{
+                             return <AppAnalysisDetailsCard key={index} item={item} currentPeriod={currentPeriod} currentSection={currentSection}/>
+                        })}
                     </ScrollView>
                     {/* Horizontal Line */}
                     <View style={styles.horizontalLine}></View>

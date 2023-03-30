@@ -11,7 +11,7 @@ export default styles = StyleSheet.create({
         borderRadius:5
     },
     periodHeader_text:{
-        fontSize:18,
+        fontSize:16,
         fontWeight:'bold',
         color:'#DA0452'
     },
@@ -21,8 +21,9 @@ export default styles = StyleSheet.create({
         marginTop:5
     },
     amount_text:{
-        fontSize:15,
+        fontSize:13,
         fontWeight:'bold',
-        color:'#DA0452'
+        color:'#DA0452',
+        marginTop:3
     }
 })

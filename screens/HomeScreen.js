@@ -8,7 +8,7 @@ import useBills from '../hooks/useBill';
 import styles from './styles/useHomeStyle';
 
 export default HomeScreen = () => {
-    const bills = useBills();
+    const bills = useBills("all");
 
     const calculateIncome = (item) => {
         let income = 0;

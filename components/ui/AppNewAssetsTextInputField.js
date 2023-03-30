@@ -4,7 +4,6 @@ import styles from './styles/appNewAssetsTextInputFieldStyle';
 
 export default AppNewAssetsTextInputField = (props) => {
     const {tab,header} = props;
-    console.log("header is:"+header);
     return (
         <View style={styles.container}>
             <Text style={{fontWeight:'bold',fontSize:13}}>{header}</Text>

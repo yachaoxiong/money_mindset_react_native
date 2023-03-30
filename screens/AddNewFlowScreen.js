@@ -36,7 +36,9 @@ export default AddNewFlowScreen = () => {
                 billType: selectedType,
                 iconName: iconName,
                 billDate: handleDate(date),
-                weekNumber:moment(handleDate(date)).week()
+                weekNumber:moment(handleDate(date)).week(),
+                monthNumber:moment(handleDate(date)).month(),
+                yearNumber:moment(handleDate(date)).year(),
             }).then(res => {
                 console.log(res);
                 setIsRefreshing(pre=>!pre)

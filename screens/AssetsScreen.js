@@ -12,7 +12,6 @@ export default AssetsScreen = () => {
     const [tab,setTab] = useState('');
     const screenHeight = Dimensions.get('window').height;
 
-    console.log("tab is"+tab);
     return (
         <View style={styles.container}>
             <SafeAreaView>
