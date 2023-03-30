@@ -7,16 +7,24 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles/appTransactionDetailStyle';
 
 export default function AppTransactionDetails(props) {
-    const {billType,amount, name, iconName} = props.item;
+    const { setIsVisible, setSelectedBill } = props
+    const { billType, amount, name, iconName } = props.item;
+
+    const handlePress = () => {
+        setIsVisible(true);
+        setSelectedBill(props.item);
+    }
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={handlePress}>
             <View style={styles.activityContainer}>
-                <FontAwesomeIcon icon={iconMap.get(iconName)} size={20} color="red"/>
-                <Text style={styles.activityName}>{billType}</Text>
+                <FontAwesomeIcon icon={iconMap.get(iconName)} size={20} color="red" />
+                <View style={styles.activityNameContainer}>
+                    <Text style={styles.activityName}>{iconName}</Text>
+                    <Text style={styles.activityNameSmall}>{name}</Text>
+                </View>
             </View>
             <View style={styles.costAndEditButton}>
                 <Text style={{marginRight:20}}>{name==='Expense'?'-'+amount:amount}</Text>
-                <FontAwesomeIcon icon={faPenToSquare} size={25} color="red"/>
             </View>
         </TouchableOpacity>
     )

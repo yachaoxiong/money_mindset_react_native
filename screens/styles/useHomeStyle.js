@@ -22,7 +22,6 @@ export default styles = StyleSheet.create({
         marginTop: 55
     },
     topMenuItemContainer:{
-        marginTop: 55,
         marginBottom:400
     },
     activityContainer:{
@@ -64,6 +63,35 @@ export default styles = StyleSheet.create({
     },
     transactionDetails:{
         paddingLeft:15,
-        paddingRight:15
-    }
+        paddingRight: 15,        
+    },
+    modalContainer: {
+        backgroundColor: 'white',
+        padding: 22,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 4,
+        width: '100%',
+        display: 'flex',
+        gap: 10,
+    },
+    closeButton: {
+        position: 'absolute',
+        top: -30,
+        right: 10,
+        color: '#DA0452',
+    },
+
+    swipeButtonsContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 26,
+        padding: 10,
+    },
+
+    swipeContentContainerStyle: {
+        flex:1,
+    },
 })

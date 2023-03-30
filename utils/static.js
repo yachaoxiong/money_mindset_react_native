@@ -34,7 +34,8 @@ export const calendarYear = [
 
 export const expenseType = [
     { icon: faUtensils, text: "Food",iconName:"faUtensils"},
-    { icon: faTv, text: "Appliance",iconName:"faTv"},
+    { icon: faTv, text: "Appliance", iconName: "faTv" },
+    { icon: faBagShopping, text: "Shopping",iconName:"faBagShopping"},
     { icon: faBagShopping, text: "Daily Expenses",iconName:"faBagShopping"},
     { icon: faHouseUser, text: "Rent",iconName:"faHouseUser"},
     { icon: faCarSide, text: "Transportation",iconName:"faCarSide"},
@@ -74,10 +75,10 @@ export const debitAndCreditCardTextFieldHeader = ['Name','Bank','Last 4 digits',
 
 export const iconMap = new Map();
 expenseType.forEach(item=>{
-    iconMap.set(item.iconName,item.icon);
+    iconMap.set(item.text.toLocaleLowerCase(), item.icon);
 });
 incomeType.forEach(item=>{
-    iconMap.set(item.iconName,item.icon);
+    iconMap.set(item.text.toLocaleLowerCase(), item.icon);
 });
 
 
