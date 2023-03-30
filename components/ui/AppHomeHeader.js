@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { SelectList } from 'react-native-dropdown-select-list'
 import {calendarMonths} from '../../utils/static'

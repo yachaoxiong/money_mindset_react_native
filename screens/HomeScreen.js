@@ -15,7 +15,7 @@ import { updateBill, deleteBill } from '../services/billService';
 import { SwipeItem, SwipeButtonsContainer, SwipeProvider } from 'react-native-swipe-item';
 
 export default HomeScreen = (props) => {
-    const { bills, updateBills } = useBills();
+    const { bills, updateBills } = useBills('all');
     const [isVisible, setIsVisible] = useState(false);
     const [selectedBill, setSelectedBill] = useState('');
     const [name, setName] = useState('');

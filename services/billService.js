@@ -3,10 +3,10 @@ import fetch from "node-fetch";
 
 const baseUrl = 'http://localhost:3000';
 
-export const getAllBills = async () => {
+export const getAllBills = async (period) => {
   const token = await getToken();
   if (!token) return;
-  return fetch(baseUrl + '/api/bill', {
+  return fetch(baseUrl + `/api/bill/${period}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
