@@ -1,9 +1,6 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import { iconMap } from '../../utils/static';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faBagShopping } from '@fortawesome/free-solid-svg-icons';
-import { faMoneyCheckDollar } from '@fortawesome/free-solid-svg-icons';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles/appTransactionDetailStyle';
 
 export default function AppTransactionDetails(props) {
@@ -24,7 +21,7 @@ export default function AppTransactionDetails(props) {
                 </View>
             </View>
             <View style={styles.costAndEditButton}>
-                <Text style={{marginRight:20}}>{name==='Expense'?'-'+amount:amount}</Text>
+                <Text style={{marginRight:20}}>{billType ==='Expense'?'-'+amount:amount}</Text>
             </View>
         </TouchableOpacity>
     )

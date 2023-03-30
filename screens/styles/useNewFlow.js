@@ -21,7 +21,9 @@ export default styles = StyleSheet.create({
     },
     detailsInfo_container: {
         // height:'57%'
-        marginTop:90
+        marginTop: 90,
+        position: 'fixed',
+        bottom: 40,
     },
     line:{
         borderBottomColor: 'black',

@@ -26,7 +26,7 @@ export default HomeScreen = (props) => {
         let income = 0;
         let expense = 0;
         item.billItems.forEach(item=>{
-            if(item.name === "Income"){
+            if(item.billType=== "Income"){
                 income+=Number(item.amount);
             }else{
                 expense+=Number(item.amount);
@@ -34,7 +34,7 @@ export default HomeScreen = (props) => {
         })
         return [income,expense];
     }
-
+   
     const handleUpdateBill = async () => {
         selectedBill.name = name;
         selectedBill.amount = amount;
@@ -65,7 +65,7 @@ export default HomeScreen = (props) => {
     return (
         <View style={styles.container}>
             <SafeAreaView>
-                <AppHomeHeader {...props} />
+                <AppHomeHeader {...props} bills={bills} />
                 {/* <TabsBarMenu menuItems={homeTabs} /> */}
                 <View style={styles.content}>
                     <ScrollView style={styles.topMenuItemContainer}>

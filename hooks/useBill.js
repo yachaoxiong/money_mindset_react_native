@@ -13,7 +13,7 @@ export default function useBills(period) {
       console.log(error)
     }
     )
-  }, [isRefreshing])
+  }, [isRefreshing, period])
 
  // update the bill state
   const updateBills = () => {
