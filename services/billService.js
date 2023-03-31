@@ -1,6 +1,7 @@
 import { getToken } from "../utils/functions";
 import fetch from "node-fetch";
 
+// const baseUrl = 'https://bewildered-ruby-tadpole.cyclic.app';
 const baseUrl = 'http://localhost:3000';
 
 export const getAllBills = async (period) => {
