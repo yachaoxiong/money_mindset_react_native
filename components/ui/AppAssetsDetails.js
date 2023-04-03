@@ -7,7 +7,6 @@ import styles from './styles/appAssetsDetails';
 
 export default AppAssetsDetails = (props) => {
     const { tab, bank, last4digits, note, amount } = props.item;
-    const screenWidth = Dimensions.get('window').width;
 
     const ListItem = (props) => {
         const {property,value} = props;
@@ -29,6 +28,7 @@ export default AppAssetsDetails = (props) => {
             <ListItem property={note} value={amount}/>
             {(tab === 'Credit Card' || tab === 'Debit Card') ? <ListItem property="Bank" value={bank}/>:null}
             {(tab === 'Credit Card' || tab === 'Debit Card') ? <ListItem property="Last 4 digits" value={last4digits}/>:null}
+            {/* {(tab === 'Credit Card' || tab === 'Debit Card')?<View style={styles.horizonalLine}></View>:null} */}
         </View>
     )
 }

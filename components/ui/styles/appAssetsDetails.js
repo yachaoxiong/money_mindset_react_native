@@ -16,5 +16,11 @@ export default styles = StyleSheet.create({
       alignItems:'center',
       paddinng:20,
       marginTop:20
-    }
+    },
+    horizonalLine:{
+      height:1,
+      width:'100%',
+      backgroundColor:'#D9D9D9',
+      marginTop:10
+  },
 })
