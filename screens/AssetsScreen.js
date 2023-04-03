@@ -60,10 +60,10 @@ export default AssetsScreen = () => {
         <View style={styles.container}>
             <SafeAreaView>
                  {/* Header */}
-                <AppAssetsHeader />
+                <AppAssetsHeader assets={assets}/>
                 {/* Assets Details */}
                 <View style={openAddNewModel || tab !== '' ?styles.content_alt:styles.content}>
-                    <ScrollView style={{marginBottom:350}}>
+                    <ScrollView style={{marginBottom:280}}>
                         {assets.map((asset,index)=>{
                             return <AppAssetsDetailsCard asset={asset} key={index}/>
                         })}

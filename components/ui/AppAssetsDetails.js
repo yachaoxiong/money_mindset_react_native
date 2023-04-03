@@ -29,12 +29,6 @@ export default AppAssetsDetails = (props) => {
             <ListItem property={note} value={amount}/>
             {(tab === 'Credit Card' || tab === 'Debit Card') ? <ListItem property="Bank" value={bank}/>:null}
             {(tab === 'Credit Card' || tab === 'Debit Card') ? <ListItem property="Last 4 digits" value={last4digits}/>:null}
-            {/* {(tab === 'Credit Card' || tab === 'Debit Card') ? <View style={styles.rightSection}>
-                <Text>{bank}</Text>
-            </View>:null}
-            {(tab === 'Credit Card' || tab === 'Debit Card') ? <View style={styles.rightSection}>
-                <Text>{last4digits}</Text>
-            </View>:null} */}
         </View>
     )
 }

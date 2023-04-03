@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 export default styles = StyleSheet.create({
     container: {
-        height: '17%',
+        height: '12%',
         width: '100%',
         backgroundColor: '#DA0452',
         marginTop:10
@@ -43,11 +43,18 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    totalAndDebt_text: {
+    blanceAndDebt_text: {
         color: 'white',
-        fontSize: 10,
+        fontSize: 12,
+        fontWeight:'bold'
     },
-    totalAndDebtAmount_text: {
+    balanceAmount_text: {
+        color: 'white',
+        fontSize: 13,
+        fontWeight:'bold',
+        marginTop:5
+    },
+    totalAndDebtAmount_text:{
         color: 'white',
         fontSize: 13,
         fontWeight:'bold',
