@@ -23,6 +23,7 @@ export const getAllBills = async (period) => {
     }
   );
 }
+
 export const getAllBillsByGroup = async () => {
   const token = await getToken();
   if (!token) return;
