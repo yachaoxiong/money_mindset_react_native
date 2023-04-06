@@ -30,7 +30,7 @@ export default AppAssetsDetailsCard = (props) => {
                 {assetsItems.map((item, index) => {
                     if (index !== assetsItems.length - 1 && item.tab !== 'Cash' && item.tab !== 'Debt') {
                         return (
-                            <View>
+                            <View key={index}>
                                 <AppAssetsDetails item={item} key={index} />
                                 <View style={styles.horizonalLine}></View>
                             </View>
