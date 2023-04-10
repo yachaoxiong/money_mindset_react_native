@@ -35,5 +35,10 @@ export default styles = StyleSheet.create({
         color:'white',
         fontSize:18,
         fontWeight:'bold'
+    },
+    errorMessage: {
+        color: 'red',
+        marginLeft: '5%',
+        marginTop: 10
     }
 })

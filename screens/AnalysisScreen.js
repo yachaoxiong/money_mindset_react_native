@@ -4,22 +4,16 @@ import AppAnalysisHeader from '../components/ui/AppAnalysisHeader';
 import AppPeriodButton from '../components/ui/AppPeriodButton';
 import AppAnalysisDetailsCard from '../components/ui/AppAnalysisDetailsCard';
 import AppLeaderboardDetailsCard from '../components/ui/AppLeaderboardDetailsCard';
-import { period } from '../utils/static';
-import styles from './styles/useAnalysis';
-
-
-// for test purpose
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faGift } from '@fortawesome/free-solid-svg-icons';
-import { faCar } from '@fortawesome/free-solid-svg-icons';
-import { faBank } from '@fortawesome/free-solid-svg-icons';
+import { period, iconMap } from '../utils/static';
+import { groupbillTypeAmountByPeriod } from '../utils/functions';
 import useBills from '../hooks/useBill';
+import styles from './styles/useAnalysis';
 
 export default AnalysisScreen = () => {
     const [currentSection, setCurrentSection] = useState('Expense');
     const [currentPeriod, setCurrentPeriod] = useState('WEEK');
     const { bills } = useBills(currentPeriod.toLocaleLowerCase());
-
+    const [leaderBoardValues,totalExpense] = groupbillTypeAmountByPeriod(bills,currentSection);
 
     return (
         <View style={styles.container}>
@@ -28,13 +22,13 @@ export default AnalysisScreen = () => {
                 {/* ScrollView for the page */}
                 <ScrollView style={styles.content}>
                     <View style={styles.periodButtonContainer}>
-                        {period.map((title,index)=>{
+                        {period && period?.map((title,index)=>{
                                 return <AppPeriodButton key={index} title={title} currentPeriod={currentPeriod} setCurrentPeriod = {setCurrentPeriod}/>
                         })}
                     </View>
                     {/* Scroll View from period details */}
                     <ScrollView horizontal={true}>
-                        {bills?.map((item,index)=>{
+                        {bills&&bills?.map((item,index)=>{
                              return <AppAnalysisDetailsCard key={index} item={item} currentPeriod={currentPeriod} currentSection={currentSection}/>
                         })}
                     </ScrollView>
@@ -44,11 +38,9 @@ export default AnalysisScreen = () => {
                     <View style={styles.leaderboardContainer}>
                         <Text style={styles.leaderboardHeader_text}>{currentSection} Leaderboard</Text>
                         <View style={styles.leaderboardDetailsContainer}>
-                            <AppLeaderboardDetailsCard icon = {faGift} type="Gift" rate={1}/>
-                            <View style={styles.horizontalLine}></View>
-                            <AppLeaderboardDetailsCard icon = {faBank} type="Bank" rate={0.5}/>
-                            <View style={styles.horizontalLine}></View>
-                            <AppLeaderboardDetailsCard icon = {faCar} type="Car" rate={0.25}/>
+                            {leaderBoardValues && leaderBoardValues?.map((item,index)=>{
+                                 return <AppLeaderboardDetailsCard key={index} amount={item.value} icon = {iconMap.get(item.key)} type={iconMap.key} rate={item.value/totalExpense}/>
+                            })}
                         </View>
                     </View>
                 </ScrollView>

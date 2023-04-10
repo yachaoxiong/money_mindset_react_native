@@ -49,14 +49,13 @@ export default AppHomeHeader = (props) => {
             </View>
             {/* left part */}
             <View style={styles.infoContainer}>
-                <View style={styles.leftContainer}>
+                {/* <View style={styles.leftContainer}>
                     <Text style={styles.text}>2023</Text>
                     <SelectList
                         setSelected={(val) => setSelectedListItem(val)}
                         data={calendarMonths}
                         search={false}
                         save="value"
-                        // arrowicon={<FontAwesomeIcon icon={faCaretDown} size={15} color="#FFF" />}
                         boxStyles={styles.boxStyle}
                         inputStyles={styles.inputStyle}
                         dropdownStyles={styles.dropdownStyle}
@@ -64,20 +63,21 @@ export default AppHomeHeader = (props) => {
                         dropdownTextStyles={styles.dropdownTextStyle}
                         defaultOption={{ key: '1', value: '01' }}
                     />
-                </View>
+                </View> */}
                 {/* dividingLine */}
-                <View style={styles.dividingLine}></View>
+               
                 {/* right part */}
-                <View style={styles.rightContainer}>
+                {/* <View style={styles.rightContainer}> */}
                     <View style={styles.incomeContainer}>
                         <Text style={styles.label}>Income</Text>
                         <AppTextAmount amount={totalExpense}  />
                     </View>
+                    <View style={styles.dividingLine}></View>
                     <View style={styles.expenseContainer}>
                         <Text style={styles.label}>Expense</Text>
                         <AppTextAmount amount={totalIncome} />
                     </View>
-                </View>
+                {/* </View> */}
             </View>
         </View>
     )

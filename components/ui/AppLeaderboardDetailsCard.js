@@ -6,7 +6,7 @@ import styles from './styles/appLeaderboardDetailsCardStyle';
 
 export default AppLeaderboardDetailsCard = (props) => {
 
-    const {icon,type,rate} = props;
+    const {icon,type,rate,amount} = props;
     const screenWidth = Dimensions.get('window').width;
 
     return (
@@ -16,8 +16,8 @@ export default AppLeaderboardDetailsCard = (props) => {
             </View>
             <View style={styles.progressContainer}>
                 <View style={[styles.headerInfo,{width:screenWidth*0.75}]}>
-                    <Text>{type} 33.4%</Text>
-                    <Text>87</Text>
+                    <Text>{type} {(rate*100).toFixed(2)+'%'}</Text>
+                    <Text>${amount}</Text>
                 </View>
                 <View style={[styles.progressBar,{width:screenWidth*0.75*rate}]}></View>
             </View>

@@ -3,6 +3,13 @@ import { StyleSheet } from 'react-native';
 
 export default styles = StyleSheet.create({
     container: {
+   
+    },
+    leftSection:{
+        display:'flex',
+        flexDirection:'row'
+    },
+    listItem:{
       display: 'flex',
       flexDirection:'row',
       justifyContent:'space-between',
@@ -10,8 +17,10 @@ export default styles = StyleSheet.create({
       paddinng:20,
       marginTop:20
     },
-    leftSection:{
-        display:'flex',
-        flexDirection:'row'
-    }
+    horizonalLine:{
+      height:1,
+      width:'100%',
+      backgroundColor:'#D9D9D9',
+      marginTop:10
+  },
 })

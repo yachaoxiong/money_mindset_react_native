@@ -5,7 +5,7 @@ import styles from './styles/appAnalysisDetailsCardStyle';
 
 export default AppAnalysisDetailsCard = (props) => {
     const { item, currentPeriod, currentSection } = props;
-    console.log(item);
+    // console.log(item);
 
     const formatHeaderDate = () => {
         if (currentPeriod === 'WEEK') {
