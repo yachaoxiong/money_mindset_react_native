@@ -32,7 +32,6 @@ export default AppAssetsDetailsCard = (props) => {
                         return (
                             <View key={index}>
                                 <AppAssetsDetails item={item} key={index} />
-                                <View style={styles.horizonalLine}></View>
                             </View>
                         )
                     }

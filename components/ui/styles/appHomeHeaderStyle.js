@@ -21,7 +21,10 @@ export default styles = StyleSheet.create({
     infoContainer: {
         display: 'flex',
         flexDirection: 'row',
-        alignContent: 'center',
+        // alignContent: 'center',
+        justifyContent:'space-evenly',
+        // paddingLeft:15,
+        // paddingRight:15,
         zIndex:1,
         height:70
     },
