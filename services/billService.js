@@ -128,3 +128,21 @@ export const deleteBill = async (billID) => {
 }
 
 
+export const getAllBillsForSearch = async () => {
+  const token = await getToken();
+  return fetch(baseUrl + '/api/bill/all/current', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  })
+    .then((response) => response.json())
+    .then((responseJson) => {
+      return responseJson;
+    })
+    .catch((error) => {
+      console.error(error);
+    }
+  );
+}
