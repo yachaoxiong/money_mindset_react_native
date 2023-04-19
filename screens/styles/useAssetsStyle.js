@@ -29,5 +29,21 @@ export default styles = StyleSheet.create({
     submitButtonContainer:{
         justifyContent:'center',
         alignItems:'center'
-    }
+    },
+    modalContainer: {
+        backgroundColor: 'white',
+        padding: 22,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 4,
+        width: '100%',
+        display: 'flex',
+        gap: 10,
+    },
+    closeButton: {
+        position: 'absolute',
+        top: -30,
+        right: 10,
+        color: '#DA0452',
+    },
 })

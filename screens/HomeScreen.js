@@ -34,11 +34,13 @@ export default HomeScreen = (props) => {
     }
    
     const handleUpdateBill = async () => {
+        console.log("selectedBill is",selectedBill);
         selectedBill.name = name;
         selectedBill.amount = +amount;
         await updateBill(selectedBill);
         setIsVisible(false);
     }
+
     const handleDeleteBill = async (item) => {
         console.log(item._id)
         await deleteBill(item._id);
@@ -49,7 +51,7 @@ export default HomeScreen = (props) => {
 
     const leftButton = (item) => {
         return <SwipeButtonsContainer style={styles.swipeButtonsContainer}>
-            <TouchableHighlight style={styles.swipeButton} onPress={() => handleDeleteBill(item)}>
+            <TouchableHighlight onPress={() => handleDeleteBill(item)}>
                 <FontAwesomeIcon icon={faTrash} size={20} color="red" />
             </TouchableHighlight>
         </SwipeButtonsContainer>
@@ -90,11 +92,10 @@ export default HomeScreen = (props) => {
                                                 rightButtons={leftButton(item)}
                                                      >
                                                      <AppTransactionDetails item={item} setIsVisible={setIsVisible} setSelectedBill={setSelectedBill} />
-                                                    </SwipeItem>
+                                                </SwipeItem>
                                             
                                             })} 
                                     </SwipeProvider>
-                                  
                                 </View>
                             </View>
                         })
