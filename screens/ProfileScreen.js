@@ -14,6 +14,8 @@ export default ProfileScreen = () => {
 
   const { myUser, updateUser } = useContext(StoreContext);
 
+  console.log("myUser=",myUser)
+
   const logout = async () => {
     try {
       removeToken();
@@ -27,9 +29,9 @@ export default ProfileScreen = () => {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <AppProfileHeader />
+        <AppProfileHeader username={myUser.username}/>
         <View style={styles.content}>
-          <AppUserProfileItem icon={faMailBulk} text="useremail@gmail.com" />
+          <AppUserProfileItem icon={faMailBulk} text={myUser.email} />
           <AppUserProfileItem icon={faCircleInfo} text="About Mindset" />
           <TouchableOpacity style={styles.button} onPress={logout}>
             <Text style={{ color: 'white', fontWeight: 'bold' }}>Logout</Text>

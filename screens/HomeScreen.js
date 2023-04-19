@@ -96,7 +96,6 @@ export default HomeScreen = (props) => {
                                             
                                             })} 
                                     </SwipeProvider>
-                                  
                                 </View>
                             </View>
                         })
