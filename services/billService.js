@@ -23,6 +23,27 @@ export const getAllBills = async (period) => {
     }
   );
 }
+
+export const searchBills = async (type) => {
+  const token = await getToken();
+  if (!token) return;
+  return fetch(baseUrl + `/api/bill/search/${type}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  })
+    .then((response) => response.json())
+    .then((responseJson) => {
+      return responseJson;
+    })
+    .catch((error) => {
+      console.error(error);
+    }
+  ); 
+}
+
 export const getAllBillsByGroup = async () => {
   const token = await getToken();
   if (!token) return;

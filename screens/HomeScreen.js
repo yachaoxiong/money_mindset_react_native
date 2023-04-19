@@ -2,8 +2,6 @@ import React,{ useEffect, useState } from 'react';
 import { View, ScrollView, Text, SafeAreaView, TouchableHighlight } from 'react-native';
 import AppHomeHeader from '../components/ui/AppHomeHeader';
 import AppTransactionDetails from '../components/ui/AppTransactionDetail';
-import { homeTabs } from '../data/home';
-import TabsBarMenu from '../components/home/TabsBarMenu';
 import useBillsByGroup from '../hooks/useBillsByGroup';
 import styles from './styles/useHomeStyle';
 import Modal from "react-native-modal";
