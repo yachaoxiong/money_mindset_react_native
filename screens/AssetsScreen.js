@@ -68,7 +68,10 @@ export default AssetsScreen = () => {
     }
 
     const handleUpdateAsset = async () => {
-        console.log("selectedAsset is",selectedAsset);
+        if (isNaN(Number(itemAmount))) {
+            setErrorMessage('Please enter a valid amount');
+            return;
+        }
         selectedAsset.amount = +itemAmount;
         selectedAsset.bank = itemBank;
         selectedAsset.last4digits = itemCardNumber;
@@ -130,6 +133,7 @@ export default AssetsScreen = () => {
                     {(itemtab === 'Debit Card' || itemtab === 'Credit Card') ? <AppInput value={itemBank}  onChangeText={text=>setItemBank(text)}/> : null}
                     {(itemtab === 'Debit Card' || itemtab === 'Credit Card') ? <AppInput value={itemCardNumber}  onChangeText={text=>setItemCardNumber(text)}/> : null}
                     <AppInput value={itemAmount}  onChangeText={text=>setItemAmount(text)}/>
+                    <Text style={{color:'red'}}>{errorMessage}</Text>
                     <AppButton title="Save"  onPress={handleUpdateAsset} />
                 </View>
             </Modal>
