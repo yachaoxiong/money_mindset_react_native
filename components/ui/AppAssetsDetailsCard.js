@@ -11,7 +11,7 @@ import { SwipeItem, SwipeButtonsContainer, SwipeProvider } from 'react-native-sw
 
 export default AppAssetsDetailsCard = (props) => {
     const { _id, assetsItems } = props.asset;
-    const {setIsVisible,setSelectedAsset} = props;
+    const {setIsVisible,setSelectedAsset, setItemBank, setCardNumber} = props;
     const { setIsRefreshing } = useContext(StoreContext);
     const screenWidth = Dimensions.get('window').width;
 

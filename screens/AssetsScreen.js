@@ -27,6 +27,8 @@ export default AssetsScreen = () => {
     const [amount, setAmount] = useState('');
     const [itemtab, setItemtab] = useState('');
     const [itemAmount,setItemAmount] = useState('');
+    const [itemBank, setItemBank] = useState('');
+    const [itemCardNumber, setItemCardNumber] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const screenHeight = Dimensions.get('window').height;
     const assets = useAssets();
@@ -68,12 +70,16 @@ export default AssetsScreen = () => {
     const handleUpdateAsset = async () => {
         console.log("selectedAsset is",selectedAsset);
         selectedAsset.amount = +itemAmount;
+        selectedAsset.bank = itemBank;
+        selectedAsset.last4digits = itemCardNumber;
         await updateAsset(selectedAsset);
         setIsVisible(false);
     }
 
     useEffect(() => {
-        selectedAsset && setItemtab(selectedAsset.tab)
+        selectedAsset && setItemtab(selectedAsset.tab);
+        selectedAsset && setItemBank(selectedAsset.bank);
+        selectedAsset && setItemCardNumber(selectedAsset.last4digits);
         selectedAsset && setItemAmount(selectedAsset.amount.toString());
     }, [selectedAsset])
 
@@ -86,7 +92,12 @@ export default AssetsScreen = () => {
                 <View style={openAddNewModel || tab !== '' ?styles.content_alt:styles.content}>
                     <ScrollView style={{marginBottom:280}}>
                         {assets.map((asset,index)=>{
-                            return <AppAssetsDetailsCard asset={asset} key={index} setIsVisible={setIsVisible} setSelectedAsset = {setSelectedAsset}/>
+                            return <AppAssetsDetailsCard 
+                                asset={asset} key={index} 
+                                setIsVisible={setIsVisible} 
+                                setSelectedAsset = {setSelectedAsset}
+                                setItemBank = {setItemBank}
+                                setItemCardNumber = {setItemCardNumber}/>
                         })}
                     </ScrollView>
                 </View>
@@ -115,8 +126,10 @@ export default AssetsScreen = () => {
                     <TouchableHighlight onPress={() => setIsVisible(false)} style={styles.closeButton}>
                         <FontAwesomeIcon icon={faXmark} size={20} color="white" />
                     </TouchableHighlight>
-                    <AppInput value={itemtab}  onChangeText={text=>setItemtab(text)} editable={false}/>
-                    <AppInput value={itemAmount} onChangeText={text=>setItemAmount(text)} />
+                    {(itemtab === 'Debt' || itemtab === 'Cash') ? <AppInput value={itemtab}  onChangeText={text=>setItemtab(text)} editable={false}/> : null}
+                    {(itemtab === 'Debit Card' || itemtab === 'Credit Card') ? <AppInput value={itemBank}  onChangeText={text=>setItemBank(text)}/> : null}
+                    {(itemtab === 'Debit Card' || itemtab === 'Credit Card') ? <AppInput value={itemCardNumber}  onChangeText={text=>setItemCardNumber(text)}/> : null}
+                    <AppInput value={itemAmount}  onChangeText={text=>setItemAmount(text)}/>
                     <AppButton title="Save"  onPress={handleUpdateAsset} />
                 </View>
             </Modal>
