@@ -77,6 +77,7 @@ export default AssetsScreen = () => {
         selectedAsset.last4digits = itemCardNumber;
         await updateAsset(selectedAsset);
         setIsVisible(false);
+        setErrorMessage('');
     }
 
     useEffect(() => {
