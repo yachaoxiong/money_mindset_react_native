@@ -21,9 +21,18 @@ export default styles = StyleSheet.create({
         marginTop:10
     },
     assetsDetailsContainer:{
-       
     },
     text:{
         fontWeight:'bold'
-    }
+    },
+    swipeContentContainerStyle: {
+        flex:1,
+    },
+    swipeButtonsContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 18,
+    },
 })

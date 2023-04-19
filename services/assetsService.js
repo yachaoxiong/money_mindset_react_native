@@ -39,3 +39,48 @@ export const getAllAssets = async () => {
         console.error(error);
     });
 }
+
+export const deleteAsset = async (assetID) => {
+    console.log("in deleteAsset???");
+    const token = await getToken();
+    return fetch(baseUrl + `/api/assets/${assetID}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application',
+        'authorization': 'Bearer ' + token
+      }
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        return responseJson;
+      }
+    )
+      .catch((error) => {
+        console.error(error);
+      }
+    );
+}
+
+export const updateAsset = async (asset) => {
+    const token = await getToken();
+  
+    console.log("asset.amount=",asset.amount);
+
+    return fetch(baseUrl + `/api/assets/${asset._id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': 'Bearer ' + token
+      },
+      body: JSON.stringify(asset)
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        return responseJson;
+      }
+    )
+      .catch((error) => {
+        console.error(error);
+      }
+    );
+  }

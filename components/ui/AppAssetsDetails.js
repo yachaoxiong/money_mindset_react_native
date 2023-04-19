@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSackDollar } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles/appAssetsDetails';
