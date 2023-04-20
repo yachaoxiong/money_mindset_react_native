@@ -95,7 +95,7 @@ export default AssetsScreen = () => {
                 {/* Assets Details */}
                 <View style={openAddNewModel || tab !== '' ?styles.content_alt:styles.content}>
                     <ScrollView style={{marginBottom:280}}>
-                        {assets.map((asset,index)=>{
+                        {assets?.map((asset,index)=>{
                             return <AppAssetsDetailsCard 
                                 asset={asset} key={index} 
                                 setIsVisible={setIsVisible} 
@@ -111,9 +111,7 @@ export default AssetsScreen = () => {
                     onPress={()=>setOpenAddNewModel(pre=>!pre)}>
                     <Text style={{ fontSize: 15, fontWeight: 'bold'}}>+  Add New</Text>
                 </TouchableOpacity>
-                {/* Add new assets model */}
                 {openAddNewModel?<AppAddNewAssetsModel setOpenAddNewModel={setOpenAddNewModel} setTab={setTab}/>:null}
-                {/* Add new assets details model */}
                 {tab !==''?<AppAddNewAssetsDetailsModel 
                     tab={tab} 
                     setTab={setTab}

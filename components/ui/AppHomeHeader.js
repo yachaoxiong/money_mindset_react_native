@@ -30,7 +30,7 @@ export default AppHomeHeader = (props) => {
         setTotalExpense(expense);
         setTotalIncome(income);
     }, [props.bills])
-    console.log("totalExpense", totalExpense)
+ 
     return (
         <View style={styles.container}>
             {/* logo */}
@@ -38,13 +38,14 @@ export default AppHomeHeader = (props) => {
                 <Image
                     source={require('../../assets/moneymindsetlogo.jpg')}
                     style={styles.logo} />
+                
                 <View style={styles.searchAndWallet}>
-                    <TouchableOpacity onPress={()=>props.navigation.navigate('SearchScreen')}>
+                <TouchableOpacity onPress={()=>props.navigation.navigate('SearchScreen')}>
                         <FontAwesomeIcon icon={faMagnifyingGlass} size={18} color="#FFF" />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>props.navigation.navigate('BudgetScreen')}>
+                    {/* <TouchableOpacity onPress={()=>props.navigation.navigate('BudgetScreen')}>
                         <FontAwesomeIcon icon={faWallet} size={18} color="#FFF" />
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
             </View>
             {/* left part */}
