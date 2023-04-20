@@ -15,7 +15,6 @@ export default AppAssetsDetailsCard = (props) => {
     const { setIsRefreshing } = useContext(StoreContext);
     const screenWidth = Dimensions.get('window').width;
 
-    // console.log("assetsItems=",assetsItems[0]);
 
     const totalAmount = () => {
         let totalAmount = 0;
@@ -51,9 +50,7 @@ export default AppAssetsDetailsCard = (props) => {
                 <Text style={styles.text}>{_id}</Text>
                 <Text style={styles.text}>${totalAmount()}</Text>
             </View>
-            {/* horizontal dividing line */}
             <View style={styles.horizonalLine}></View>
-            {/* assets details section*/}
             <View style={styles.assetsDetailsContainer}>
                 <SwipeProvider>
                     {assetsItems.map((item, index) => {

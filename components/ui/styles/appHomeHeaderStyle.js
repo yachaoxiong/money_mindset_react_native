@@ -117,7 +117,7 @@ export default styles = StyleSheet.create({
     searchAndWallet: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        width: 60,
+        justifyContent: 'flex-end',
+        width: 40,
     },
 })

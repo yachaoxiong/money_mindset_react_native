@@ -14,7 +14,9 @@ export default styles = StyleSheet.create({
       flexDirection:'row',
       justifyContent:'space-between',
       alignItems:'center',
-      marginTop:20
+      marginTop: 20,
+      backgroundColor: '#F3F3F3',
+      padding:10
     },
     horizonalLine:{
       height:1,

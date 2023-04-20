@@ -26,13 +26,14 @@ export default styles = StyleSheet.create({
         fontWeight:'bold'
     },
     swipeContentContainerStyle: {
-        flex:1,
+        flex: 1,
+        justifyContent: 'center',
     },
     swipeButtonsContainer: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 18,
+        marginTop: 26,
     },
 })

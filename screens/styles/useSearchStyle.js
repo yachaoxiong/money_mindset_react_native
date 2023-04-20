@@ -4,11 +4,13 @@ import {AppStyles} from '../../common/styles'
 export default styles = StyleSheet.create({
     container: {
         flex:1,
-        backgroundColor: '#DA0452'
+        backgroundColor: '#DA0452',
+    
     },
     content:{
         height:'100%',
-        backgroundColor:'white'
+        backgroundColor: 'white',
+        paddingHorizontal: 20,
     },
     noDataContainer: {
         flex: 1,
@@ -89,9 +91,18 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 26,
         padding: 10,
+ 
     },
 
     swipeContentContainerStyle: {
         flex:1,
     },
+    noResults: {
+        fontSize: 20,
+        color: 'grey',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginTop: 20,
+        
+    }
 })
