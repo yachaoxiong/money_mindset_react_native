@@ -22,7 +22,8 @@ export default styles = StyleSheet.create({
     },
     leaderboardContainer:{
         marginTop:10,
-        marginLeft:10
+        marginLeft:10,
+        marginBottom:160
     },
     leaderboardHeader_text:{
         color:'#DA0452',

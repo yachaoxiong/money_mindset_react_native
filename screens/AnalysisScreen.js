@@ -20,30 +20,32 @@ export default AnalysisScreen = () => {
             <SafeAreaView>
                 <AppAnalysisHeader currentSection = {currentSection} setCurrentSection = {setCurrentSection}/>
                 {/* ScrollView for the page */}
-                <ScrollView style={styles.content}>
+                <View style={styles.content}>
                     <View style={styles.periodButtonContainer}>
                         {period && period?.map((title,index)=>{
                                 return <AppPeriodButton key={index} title={title} currentPeriod={currentPeriod} setCurrentPeriod = {setCurrentPeriod}/>
                         })}
                     </View>
                     {/* Scroll View from period details */}
-                    <ScrollView horizontal={true}>
-                        {bills&&bills?.map((item,index)=>{
-                             return <AppAnalysisDetailsCard key={index} item={item} currentPeriod={currentPeriod} currentSection={currentSection}/>
-                        })}
-                    </ScrollView>
+                    <View style={{height:130}}>
+                        <ScrollView horizontal={true}>
+                            {bills&&bills?.map((item,index)=>{
+                                return <AppAnalysisDetailsCard key={index} item={item} currentPeriod={currentPeriod} currentSection={currentSection}/>
+                            })}
+                        </ScrollView>
+                    </View>
                     {/* Horizontal Line */}
                     <View style={styles.horizontalLine}></View>
                     {/* leaderBoard */}
-                    <View style={styles.leaderboardContainer}>
+                    <ScrollView style={styles.leaderboardContainer}>
                         <Text style={styles.leaderboardHeader_text}>{currentSection} Leaderboard</Text>
                         <View style={styles.leaderboardDetailsContainer}>
                             {leaderBoardValues && leaderBoardValues?.map((item,index)=>{
                                  return <AppLeaderboardDetailsCard key={index} amount={item.value} icon = {iconMap.get(item.key)} type={iconMap.key} rate={item.value/totalExpense}/>
                             })}
                         </View>
-                    </View>
-                </ScrollView>
+                    </ScrollView>
+                </View>
             </SafeAreaView>
         </View>
     )
