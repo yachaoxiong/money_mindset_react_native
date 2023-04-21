@@ -1,7 +1,8 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect,useContext } from 'react';
 import { SwipeItem, SwipeButtonsContainer, SwipeProvider } from 'react-native-swipe-item';
-import { View, ScrollView, SafeAreaView, Text, TouchableHighlight } from 'react-native';
+import { View, ScrollView, SafeAreaView, Text, TouchableHighlight, TabBarIOSItem } from 'react-native';
 import Modal from "react-native-modal";
+import { StoreContext } from '../store/store';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faXmark, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useDebounce } from '../hooks/useDebounce';
@@ -10,6 +11,7 @@ import AppInput from '../components/ui/AppInput';
 import AppButton from '../components/ui/AppButton';
 import AppSearchHeader from '../components/ui/AppSearchHeader';
 import AppTransactionDetails from '../components/ui/AppTransactionDetail';
+import {deleteBill,updateBill} from '../services/billService';
 import styles from './styles/useSearchStyle';
 
 
@@ -22,17 +24,20 @@ export default SearchScreen = (props) => {
   const [selectedBill, setSelectedBill] = useState('');
   const bills = useSearch();
   const [filteredBills, setFilteredBills] = useState([]);
+  const { setIsRefreshing } = useContext(StoreContext);
 
   const handleUpdateBill = async () => {
     selectedBill.name = name;
     selectedBill.amount = +amount;
     await updateBill(selectedBill);
     setIsVisible(false);
+    setIsRefreshing(pre=>!pre);
   }
   const handleDeleteBill = async (item) => {
     console.log(item._id)
     await deleteBill(item._id);
-    updateBills();
+    // updateBill();
+    setIsRefreshing(pre=>!pre);
   }
 
   const leftButton = (item) => {
@@ -56,7 +61,7 @@ export default SearchScreen = (props) => {
           </SwipeProvider>
     })
   
-  const renderFilteredBills = searchParams.length > 0 ? bills?.filter(item => item.name.toLowerCase().includes(searchParams.toLowerCase())|| item.billType.toLowerCase().includes(searchParams.toLowerCase())).map((item, index) => {
+  const renderFilteredBills = searchParams.length > 0 ? bills?.filter(item => item.name.toLowerCase().includes(searchParams.toLowerCase()) || item.billType.toLowerCase().includes(searchParams.toLowerCase()) || item.iconName.toLowerCase().includes(searchParams.toLocaleLowerCase())).map((item, index) => {
     return <SwipeProvider key={item._id}>
       <SwipeItem
         style={styles.button}
